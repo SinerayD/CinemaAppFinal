@@ -1,0 +1,74 @@
+﻿@model LoginViewModel
+<link rel="stylesheet" href="~/Css/my-account.css">
+<div class="background-image-container">
+    <div class="background-image">
+        <img style=" filter: brightness(0.5); " src="~/Images/my-account/images/login-register.jpg" alt="Image 1">
+    </div>
+    <div class="breadcrumbs-title-container">
+        <div class="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>Home</li>
+                <img style="width: 15px;" src="~/Images/my-account/icons/arrow-right.png">
+                <li>My Account</li>
+            </ul>
+        </div>
+        <div class="title">
+            <h1>Log In</h1>
+        </div>
+    </div>
+    <div class="dashed-line">
+        <img src="~/Images/my-account/images/image-lines-header.jpg">
+    </div>
+</div>
+<!--End of Navbar section-->
+
+<section id="container">
+   
+    <div class="alert-wrapper" style="display: none;">
+        <ul class="error-message">
+        </ul>
+    </div>
+
+    <div class="login-container">
+        <h2 style="display:flex; flex-direction:column;align-items:center; font-size:30px;margin-bottom:30px;">Login</h2>
+        <div class="form-section">
+            <!-- login form -->
+            <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+            <form method="post" class="login-box">
+                <div class="login-box">
+
+                    <div class="form-label">
+                    <label asp-for="UserName" for="username" class="label">Username<span class="required">*</span></label>
+                    <input asp-for="UserName" type="text" id="username" class="username ele">
+                    <span class="text text-danger" asp-validation-for="UserName"></span>
+                    </div>
+
+                    <div class="form-label">
+                        <label asp-for="Password" for="username" class="label">Password<span class="required">*</span></label>
+                        <input asp-for="Password" type="password" id="username" class="username ele">
+                        <span class="text text-danger" asp-validation-for="Password"></span>
+                    </div>
+
+                    <div class="privacy-policy-container">
+                        <div class="privacy-policy">
+                            <div class="row align-items-center remember">
+                                <input type="checkbox"><span style="color:#737373;">Remember Me</span>
+                            </div>
+                            <span class="text text-danger" asp-validation-for="IsRememberMe"></span>
+                           
+                        </div>
+                    </div>
+
+                    <button type="submit" class="clkbtn">Log in</button>
+
+                    <div style="display:flex; gap:170px; align-items:center;" class="lost-password">
+                        <a asp-controller="account" asp-action="forgetpassword">Lost your password?</a>
+                        <p style="color:#737373;">New Member?<a asp-action="register" asp-controller="account" style="margin-left: 7px;text-decoration:none;color: #D96C2C;">Register</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<script src="~/Js/my-account.js"></script>
+<script src="~/Js/toggle-password.js"></script>

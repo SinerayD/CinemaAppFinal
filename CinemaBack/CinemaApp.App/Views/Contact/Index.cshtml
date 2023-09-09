@@ -1,0 +1,110 @@
+﻿@model ContactMessage
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="./Css/contact.css">
+@section ContactHtml{
+    <div class="contact-image-container">
+        <div class="image">
+            <img style="filter: brightness(0.8);object-fit:cover;" src="~/Images/contact/images/contact-background.jpg" alt="Image 1">
+        </div>
+        <div class="breadcrumbs-title-container">
+            <div class="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>Home</li>
+                    <img style="width: 15px;" src="./Images/contact/icons/arrow-right.png">
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="title">
+                <h1>Contact</h1>
+            </div>
+        </div>
+        <div class="dashed-line">
+            <img src="./Images/contact/images/image-lines-header.jpg">
+        </div>
+    </div>
+}
+<section id="container">
+    
+    <div class="contactus-container">
+        <div class="contactus-headings">
+            <div class="contact-icon">
+            <img src="~/Images/home-page/icons/film-icon.jpg" style="width:40px;justify-content:center; align-items:center ">
+            </div>
+            <div class="top-headings">
+                <h3 class="sub-title">Contact With Us</h3>
+                <h2 class="title">Feel Free to Write us<br> Anytime</h2>
+            </div>
+        </div>
+    </div>
+    <form asp-action="Index" method="post" class="form">
+        <div class="row">
+            <input asp-for="Name" type="text" id="name" placeholder="Your Name">
+                <input asp-for="Email" type="email" id="email" placeholder="Email Adress">
+        </div>
+        <div class="row">
+                <input asp-for="PhoneNumber" type="number" id="phone" placeholder="Phone">
+                <input asp-for="Subject" type="text" id="subject" placeholder="Subject">
+        </div>
+        <div class="your-message">
+                <textarea asp-for="Comment" style="width: 775px; height: 140px;"
+                   type="text"  placeholder="Write a Comment"></textarea>
+        </div>
+        <button type="submit">Send a Message</button>
+    </form>
+</section>
+<section>
+    <div class="background-image">
+        <img src="./Images/contact/images/background-contact-.jpg">
+    </div>
+    <div class="info-boxes">
+        <div class="contact-info">
+            <iv class="box-background">
+                <img src="./Images/contact/images/background.png">
+            </iv>
+            <div class="content">
+                <h3 class="about-title">About</h3>
+                <p class="about-text">Morbi ut tellus ac leo mol<br> stie luctus nec vehicula <br>sed</p>
+            </div>
+            <div class="about-icon">
+                <img style="width: 65px;height: 65px;" src="./Images/contact/icons/about-us.png">
+            </div>
+        </div>
+        <div class="contact-info">
+            <iv class="box-background">
+                <img src="./Images/contact/images/background.png">
+            </iv>
+            <div class="content">
+                <h3 class="about-title">Address</h3>
+                <p class="about-text">68 Road Broklyn Street, New York, UnitedStates of America</p>
+            </div>
+            <div class="about-icon">
+                <img style="width: 50px; height: 50px;" src="./Images/contact/icons/map.png">
+            </div>
+        </div>
+        <div class="contact-info">
+            <iv class="box-background">
+                <img src="./Images/contact/images/background.png">
+            </iv>
+            <div class="content">
+                <h3 class="about-title">Contact</h3>
+                <p class="about-text">Morbi ut tellus ac leo mol<br> stie luctus nec vehicula <br>sed</p>
+            </div>
+            <div class="about-icon">
+                <img style="width: 65px;height: 65px;" src="./Images/contact/icons/cocntact.png">
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="google-map">
+        <div class="mapouter">
+            <div class="gmap_canvas">
+                <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                        src="https://maps.google.com/maps?width=100%25&amp;height=100%25&amp;hl=en&amp;q=University%20of%20Oxford&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+

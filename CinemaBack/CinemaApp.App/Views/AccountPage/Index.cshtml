@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="./Css/account-page.css">
+@section AccountPageHtml{
+    <div class="background-image-container">
+        <div class="background-image">
+            <img src="./Images/account-page/images/movie-detail-background.jpg" alt="Image 1">
+        </div>
+        <div class="breadcrumbs-title-container">
+            <div class="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>Home</li>
+                    <img style="width: 15px;" src="./Images/account-page/icons/arrow-right.png">
+                    <li>My Account</li>
+                </ul>
+            </div>
+            <div class="title">
+                <h1>My Account</h1>
+            </div>
+        </div>
+        <div class="dashed-line">
+            <img src="./Images/account-page/images/image-lines-header.jpg">
+        </div>
+    </div>
+}
+<section id="container">
+    <div class="sidebar">
+        <ul class="sidebar-nav">
+            <li class="nav-item"><a class="nav-link" href="#" data-section="dashboard">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-section="orders">Orders</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-section="addresses">Addresses</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-section="account">Account Details</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-section="logout">Log Out</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <!-- Content will be dynamically loaded here -->
+    </div>
+
+</section>
+

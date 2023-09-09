@@ -1,0 +1,87 @@
+﻿@model UserUpdateViewModel
+<link rel="stylesheet" href="~/Css/my-account.css">
+<div class="background-image-container">
+    <div class="background-image">
+        <img style=" filter: brightness(0.5); " src="~/Images/my-account/images/login-register.jpg" alt="Image 1">
+    </div>
+    <div class="breadcrumbs-title-container">
+        <div class="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>Home</li>
+                <img style="width: 15px;" src="~/Images/my-account/icons/arrow-right.png">
+                <li>My Account</li>
+            </ul>
+        </div>
+        <div class="title">
+            <h1>Update Account</h1>
+        </div>
+    </div>
+    <div class="dashed-line">
+        <img src="~/Images/my-account/images/image-lines-header.jpg">
+    </div>
+</div>
+<!--End of Navbar section-->
+
+<section id="container">
+   
+    <div class="alert-wrapper" style="display: none;">
+        <ul class="error-message">
+        </ul>
+    </div>
+
+    <div class="form-container">
+        <h2 style="display:flex; flex-direction:column;align-items:center; font-size:30px;">Update Accout</h2>
+        <div style="height:auto;" class="form-section">
+            <!-- signup form -->
+            <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+            <form method="post" class="signup-box">
+
+                <div class="form-label">
+                    <label asp-for="Name" for="name" class="label">Enter your name <span class="required">*</span></label>
+                    <input asp-for="Name" type="text" id="name" class="name ele">
+                    <span class="text text-danger" asp-validation-for="Name"></span>
+                </div>
+
+                <div class="form-label">
+                    <label asp-for="Surname" for="surname" class="label">Enter your surname <span class="required">*</span></label>
+                    <input asp-for="Surname" type="text" id="surname" class="surname ele">
+                    <span class="text text-danger" asp-validation-for="Surname"></span>
+                </div>
+
+                <div class="form-label">
+                    <label asp-for="UserName" for="username" class="label">Enter your username <span class="required">*</span></label>
+                    <input asp-for="UserName" type="text" id="username" class="username ele">
+                    <span class="text text-danger" asp-validation-for="UserName"></span>
+                </div>
+                 <div class="form-label">
+                    <label asp-for="Email" for="email" class="label">Enter your email <span class="required">*</span></label>
+                    <input asp-for="Email" type="text" id="email" class="email ele">
+                    <span class="text text-danger" asp-validation-for="Email"></span>
+                </div>
+                <div class="form-label">
+                    <label asp-for="CurrentPassword" for="CurrentPassword" class="label">Enter your Current password <span class="required">*</span></label>
+                    <input asp-for="CurrentPassword" type="password" id="password" class="password ele" data-val="true" data-val-required="The Password field is required."
+                           oninput="validatePasswordMatch()">
+                    <span class="text text-danger" asp-validation-for="CurrentPassword"></span>
+                </div>
+                <div class="form-label">
+                    <label asp-for="NewPassword" for="NewPassword" class="label">Enter your New password <span class="required">*</span></label>
+                    <input asp-for="NewPassword" type="password" id="password" class="password ele" data-val="true" data-val-required="The Password field is required."
+                           oninput="validatePasswordMatch()">
+                    <span class="text text-danger" asp-validation-for="NewPassword"></span>
+                </div>
+                <div class="form-label">
+                    <label asp-for="ConfirmNewPassword" for="confirmPassword" class="label">Confirm your New password <span class="required">*</span></label>
+                    <input asp-for="ConfirmNewPassword" type="password" id="confirmPassword" class="confirm-password ele" data-val="true"
+                           data-val-equalto="The Password and Confirm password do not match." data-val-equalto-other="password"
+                           oninput="validatePasswordMatch()">
+                    <span class="text text-danger" asp-validation-for="ConfirmNewPassword"></span>
+                </div>
+
+                <button type="submit" class="clkbtn">Update</button>
+            </form>
+        </div>
+    </div>
+</section>
+<script src="~/Js/my-account.js"></script>
+<script src="~/Js/toggle-password.js"></script>

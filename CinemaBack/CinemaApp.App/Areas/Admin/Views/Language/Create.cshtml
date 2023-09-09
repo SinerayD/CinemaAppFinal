@@ -1,0 +1,18 @@
+﻿@model Language
+
+
+<h1>Create Category</h1>
+
+<div class="container">
+    <form method="post">
+        <div class="form-group">
+            <label for="Name">Language</label>
+            <span class="alert text-danger"></span>
+            <input type="text" class="form-control"asp-for="@Model.Name">
+            <span class="text text-danger"asp-validation-for="@Model.Name"></span>
+            @Html.AntiForgeryToken()
+        </div>
+
+        <button style="background-color: #4CAF50; border: none;border-radius:10px;color: white;padding: 16px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;transition-duration: 0.4s;cursor: pointer;margin-top:20px" type="submit">Create</button>
+    </form>
+</div>

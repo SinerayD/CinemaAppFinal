@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,500&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,500&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./Css/movie-now-playing.css">
+    <title>Movies Now Playing</title>
+</head>
+<body>
+    <nav>
+        <div class="navbar_container">
+            <div class="navbar_container_left">
+                <div class="logo">
+                    <img style="width: 108px; cursor: pointer;" src="./Images/movie-now-playing/icons/logo.png" class="page_icon"
+                        alt="page icon">
+                </div>
+            </div>
+            <div class="navbar_container_right">
+                <div class="links_container">
+                    <a href="#">Home</a>
+                    <a href="#">Movies</a>
+                    <a href="#">News</a>
+                    <a href="#">Pages</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="search_container">
+                <img id="searchIcon" class="search-icon" width="30" height="30" style="cursor: pointer;"
+                  src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png" alt="search--v1" />
+                <img id="userIcon" width="30" height="30" style="cursor: pointer;"
+                  src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/FFFFFF/external-user-user-flatart-icons-outline-flatarticons-15.png"
+                  alt="external-user-user-flatart-icons-outline-flatarticons-15" />
+              </div>
+            <div id="searchModal" class="search-modal">
+                <div class="search-modal-content">
+                  <div class="search-input-container">
+                    <input id="searchInput" type="text" class="search-input" placeholder="Search..." />
+                    <button class="search-button">
+                      <img width="30" height="30" style="cursor: pointer;" src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png" alt="search--v1" alt="Search Icon" />
+                    </button>
+                  </div>
+                  <button id="closeModalButton" class="close-button"><img width="16" height="16" src="https://img.icons8.com/external-inkubators-basic-outline-inkubators/16/FFFFFF/external-close-button-it-and-computer-inkubators-basic-outline-inkubators.png" alt="external-close-button-it-and-computer-inkubators-basic-outline-inkubators"/></button>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="background-image-container">
+            <div class="background-image">
+                <img src="./Images/movie-now-playing/images/movie-detail-background.jpg" alt="Image 1">
+            </div>
+            <div class="breadcrumbs-title-container">
+                <div class="breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>Home</li>
+                        <img style="width: 15px;" src="./Images/movie-now-playing/icons/arrow-right.png">
+                        <li>Movies Now Playing</li>
+                    </ul>
+                </div>
+                <div class="title">
+                    <h1>Movies Now Playing</h1>
+                </div>
+            </div>
+            <div class="dashed-line">
+                <img src="./Images/movie-now-playing/images/image-lines-header.jpg">
+            </div>
+        </div>
+    </nav>
+ <!--End of Navbar section-->
+ <!--Movies Now Playing section-->
+ <section id="container">
+    <div class="movie-container">
+        <div class="movie-card">
+            <div class="movie-image">
+                <img src="./Images/movie-now-playing/images/movie-1.jpg">
+            </div>
+            <div class="movie-btn">
+                <img src="./Images/movie-now-playing/icons/play.jpg">
+                <a href="#"></a>
+            </div>
+            <div class="movie-info">
+                <div class="movie-background-image">
+                   <img src="./Images/movie-now-playing/images/background.png">
+                </div>
+                <div class="categories-and-time">
+                    <div class="movie-category">
+                        <img src="./Images/movie-now-playing/icons/bookmark.jpg">
+                        <a href="#" title="Comedy">Comedy</a>
+                    </div>
+                    <div class="time">
+                        <img class="running-time" src="./Images/movie-now-playing/icons/time.png">
+                        <p>180 Mins</p>
+                    </div>
+                </div>
+                <div class="movie-title">
+                    <a href="#"><h2>The Fifth Day</h2></a>
+                </div>
+                <div class="ticket-btn">
+                    <a href="#">Get Ticket</a>
+                </div>
+                    
+            </div>
+        </div>
+        <div class="movie-card">
+            <div class="movie-image">
+                <img src="./Images/movie-now-playing/images/movie-2.jpg">
+            </div>
+            <div class="movie-btn">
+                <img src="./Images/movie-now-playing/icons/play.jpg">
+                <a href="#"></a>
+            </div>
+            <div class="movie-info">
+                <div class="movie-background-image">
+                   <img src="./Images/movie-now-playing/images/background.png">
+                </div>
+                <div class="categories-and-time">
+                    <div class="movie-category">
+                        <img src="./Images/movie-now-playing/icons/bookmark.jpg">
+                        <a href="#" title="Comedy">Comedy</a>
+                    </div>
+                    <div class="time">
+                        <img class="running-time" src="./Images/movie-now-playing/icons/time.png">
+                        <p>180 Mins</p>
+                    </div>
+                </div>
+                <div class="movie-title">
+                    <a href="#"><h2>The Fifth Day</h2></a>
+                </div>
+                <div class="ticket-btn">
+                    <a href="#">Get Ticket</a>
+                </div>   
+            </div>
+        </div>
+    </div>
+    <div class="movie-container">
+        <div class="movie-card">
+            <div class="movie-image">
+                <img src="./Images/movie-now-playing/images/movie-3.jpg">
+            </div>
+            <div class="movie-btn">
+                <img src="./assets/icons/play.jpg">
+                <a href="#"></a>
+            </div>
+            <div class="movie-info">
+                <div class="movie-background-image">
+                   <img src="./Images/movie-now-playing/images/background.png">
+                </div>
+                <div class="categories-and-time">
+                    <div class="movie-category">
+                        <img src="./Images/movie-now-playing/icons/bookmark.jpg">
+                        <a href="#" title="Comedy">Comedy</a>
+                    </div>
+                    <div class="time">
+                        <img class="running-time" src="./Images/movie-now-playing/icons/time.png">
+                        <p>180 Mins</p>
+                    </div>
+                </div>
+                <div class="movie-title">
+                    <a href="#"><h2>The Fifth Day</h2></a>
+                </div>
+                <div class="ticket-btn">
+                    <a href="#">Get Ticket</a>
+                </div>
+                    
+            </div>
+        </div>
+        <div class="movie-card">
+            <div class="movie-image">
+                <img src="./Images/movie-now-playing/images/movie-4.jpg">
+            </div>
+            <div class="movie-btn">
+                <img src="./Images/movie-now-playing/icons/play.jpg">
+                <a href="#"></a>
+            </div>
+            <div class="movie-info">
+                <div class="movie-background-image">
+                   <img src="./Images/movie-now-playing/images/background.png">
+                </div>
+                <div class="categories-and-time">
+                    <div class="movie-category">
+                        <img src="./Images/movie-now-playing/icons/bookmark.jpg">
+                        <a href="#" title="Comedy">Comedy</a>
+                    </div>
+                    <div class="time">
+                        <img class="running-time" src="./Images/movie-now-playing/icons/time.png">
+                        <p>180 Mins</p>
+                    </div>
+                </div>
+                <div class="movie-title">
+                    <a href="#"><h2>The Fifth Day</h2></a>
+                </div>
+                <div class="ticket-btn">
+                    <a href="#">Get Ticket</a>
+                </div>   
+            </div>
+        </div>
+    </div>
+    <div class="movie-container">
+        <div class="movie-card">
+            <div class="movie-image">
+                <img src="./Images/movie-now-playing/images/movie-5.jpg">
+            </div>
+            <div class="movie-btn">
+                <img src="./Images/movie-now-playing/icons/play.jpg">
+                <a href="#"></a>
+            </div>
+            <div class="movie-info">
+                <div class="movie-background-image">
+                   <img src="./Images/movie-now-playing/images/background.png">
+                </div>
+                <div class="categories-and-time">
+                    <div class="movie-category">
+                        <img src="./Images/movie-now-playing/icons/bookmark.jpg">
+                        <a href="#" title="Comedy">Comedy</a>
+                    </div>
+                    <div class="time">
+                        <img class="running-time" src="./Images/movie-now-playing/icons/time.png">
+                        <p>180 Mins</p>
+                    </div>
+                </div>
+                <div class="movie-title">
+                    <a href="#"><h2>The Fifth Day</h2></a>
+                </div>
+                <div class="ticket-btn">
+                    <a href="#">Get Ticket</a>
+                </div>
+                    
+            </div>
+        </div>
+        <div class="movie-card">
+            <div class="movie-image">
+                <img src="./Images/movie-now-playing/images/movie-6.jpg">
+            </div>
+            <div class="movie-btn">
+                <img src="./Images/movie-now-playing/icons/play.jpg">
+                <a href="#"></a>
+            </div>
+            <div class="movie-info">
+                <div class="movie-background-image">
+                   <img src="./Images/movie-now-playing/images/background.png">
+                </div>
+                <div class="categories-and-time">
+                    <div class="movie-category">
+                        <img src="./Images/movie-now-playing/icons/bookmark.jpg">
+                        <a href="#" title="Comedy">Comedy</a>
+                    </div>
+                    <div class="time">
+                        <img class="running-time" src="./Images/movie-now-playing/icons/time.png">
+                        <p>180 Mins</p>
+                    </div>
+                </div>
+                <div class="movie-title">
+                    <a href="#"><h2>The Fifth Day</h2></a>
+                </div>
+                <div class="ticket-btn">
+                    <a href="#">Get Ticket</a>
+                </div>   
+            </div>
+        </div>
+    </div>
+    <div class="movie-container">
+        <div class="movie-card">
+            <div class="movie-image">
+                <img src="./Images/movie-now-playing/images/movie-7.jpg">
+            </div>
+            <div class="movie-btn">
+                <img src="./Images/movie-now-playing/icons/play.jpg">
+                <a href="#"></a>
+            </div>
+            <div class="movie-info">
+                <div class="movie-background-image">
+                   <img src="./Images/movie-now-playing/images/background.png">
+                </div>
+                <div class="categories-and-time">
+                    <div class="movie-category">
+                        <img src="./Images/movie-now-playing/icons/bookmark.jpg">
+                        <a href="#" title="Comedy">Comedy</a>
+                    </div>
+                    <div class="time">
+                        <img class="running-time" src="./Images/movie-now-playing/icons/time.png">
+                        <p>180 Mins</p>
+                    </div>
+                </div>
+                <div class="movie-title">
+                    <a href="#"><h2>The Fifth Day</h2></a>
+                </div>
+                <div class="ticket-btn">
+                    <a href="#">Get Ticket</a>
+                </div>
+                    
+            </div>
+        </div>
+        <div class="movie-card">
+            <div class="movie-image">
+                <img src="./Images/movie-now-playing/images/movie-8.jpg">
+            </div>
+            <div class="movie-btn">
+                <img src="./Images/movie-now-playing/icons/play.jpg">
+                <a href="#"></a>
+            </div>
+            <div class="movie-info">
+                <div class="movie-background-image">
+                   <img src="./Images/movie-now-playing/images/background.png">
+                </div>
+                <div class="categories-and-time">
+                    <div class="movie-category">
+                        <img src="./Images/movie-now-playing/icons/bookmark.jpg">
+                        <a  href="#" title="Comedy">Comedy</a>
+                    </div>
+                    <div class="time">
+                        <img class="running-time" src="./Images/movie-now-playing/icons/time.png">
+                        <p>180 Mins</p>
+                    </div>
+                </div>
+                <div class="movie-title">
+                    <a href="#"><h2>The Fifth Day</h2></a>
+                </div>
+                <div class="ticket-btn">
+                    <a href="#">Get Ticket</a>
+                </div>   
+            </div>
+        </div>
+    </div>
+ </section>
+ <div class="pagination">
+    <button class="prev-btn" disabled>&lt;</button>
+    <button class="next-btn">&gt;</button>
+</div>
+   <!-- Footer -->
+   <footer>
+    <div class="footer-info">
+      <div class="socials">
+        <div class="socials-left">
+         <img src="./Images/movie-now-playing/icons/logo.png">
+        </div>
+        <div class="socials-right">
+         <div class="help">
+           <p>Help</p>
+           <div class="seperator">/</div>
+           <p>Privacy Policy</p>
+         </div>
+         <div class="wrap">
+           <img src="./Images/movie-now-playing/icons/twitter.png">
+         </div>
+         <div class="wrap">
+           <img src="./Images/movie-now-playing/icons/facebook.png">
+         </div>
+         <div class="wrap">
+           <img src="./Images/movie-now-playing/icons/pinterest.png">
+         </div>
+         <div class="wrap">
+           <img src="./Images/movie-now-playing/icons/instagram.jpg">
+         </div>
+        </div>
+       </div>
+       <div class="additional-info">
+        <div class="footer-buy-ticket">
+          Buy movie tickets easily with Aovis system nationwide	
+          <div class="footer-btn">
+            <a href="#">Get Your Ticket</a>
+          </div>
+        </div>
+        <div class="footer-movies">
+          <h2>Movies</h2>
+          <ul>
+            <li class=>Thriller</li>
+            <li class=>Action</li>
+            <li class=>Comedy</li>
+            <li class=>Fiction</li>
+            <li class=>Historical</li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h2>Links</h2>
+          <ul>
+            <li>About</li>
+            <li>My account</li>
+            <li>News</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+        <div class="subscribe">
+          <h2>Newsletter</h2>
+          <p>Subscribe to Leitmotif newsletter <br>this very day.</p>
+          <div class="email-box">
+            <input type="email" name="Email" placeholder="Email Adress">
+          <button type="submit"><span class="send">Send</span></button>
+          </div>
+          <label class="terms-label">
+            <input type="radio" name="terms" class="terms-checkbox">
+           <p>I agree to all terms and policies of <br>the company</p>
+        </label>
+        </div>
+       </div>
+    </div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="./Images/reset-password/icons/arrow-top.png"></button>
+  </footer>
+<script src="./Js/auto-scroll.js"></script>
+<script src="./Js/sticky-navbar.js"></script>
+<script src="./Js/search-overlay.js"></script>
+</body>
+</html>

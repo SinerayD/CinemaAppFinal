@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Movie>
+
+<link rel="stylesheet" href="~/Css/movie-now-playing.css">
+<div class="background-image-container">
+    <div class="background-image">
+        <img style="object-fit:cover;" src="~/Images/blog-page/images/background-image.jpg" alt="Image 1">
+    </div>
+    <div class="breadcrumbs-title-container">
+        <div class="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>Home</li>
+                <img style="width: 15px;" src="~/Images/movie-now-playing/icons/arrow-right.png">
+                <li>Movies Now Playing</li>
+            </ul>
+        </div>
+        <div class="title">
+            <h1>Movies Now Playing</h1>
+        </div>
+    </div>
+    <div class="dashed-line">
+        <img src="~/Images/movie-now-playing/images/image-lines-header.jpg">
+    </div>
+</div>
+<section id="container">
+    <div class="movies-now-playing">
+
+            <div class="movies">
+                <div class="movie-row">
+                    @foreach (var movie in Model)
+                    {
+                        <div class="movie-card">
+                            <img src="~/Images/home-page/images/@movie.Image">
+                            <div class="category-and-time">
+                                <div class="movie-category">
+                                    @foreach (var item in movie.movieCategories)
+                                    {
+                                        <a href="./movie-booking.html">@item.Category.Name</a>
+                                    }
+                                </div>
+                                <div class="seperator">/</div>
+                                <span class="running-time">@movie.RunningTime Mins</span>
+                            </div>
+                            <div class="movie-title">
+                                <a asp-action="detail" asp-controller="movie" asp-route-id="@movie.Id">@movie.Name</a>
+                            </div>
+                            <div class="movie-btn">
+                                <a href="./movie-booking.html">Get Ticket</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+ 
+</section>
+<!-- End Of Movies Now Playing -->

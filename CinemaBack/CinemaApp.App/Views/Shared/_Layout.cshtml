@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,500&display=swap"
+          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,500&family=Space+Grotesk:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,500&family=Space+Grotesk:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <title>Homepage</title>
+</head>
+
+<body>
+        <nav>
+            <div class="navbar_container">
+                <div class="navbar_container_left">
+                    <div class="logo">
+                        <img style="width: 108px; cursor: pointer;" src="~/Images/home-page/icons/logo.png" class="page_icon"
+                             alt="page icon">
+                    </div>
+                </div>
+                <div class="navbar_container_right">
+                    <div class="links_container">
+                        <a asp-controller="home" asp-action="index">Home</a>
+                        <a asp-controller="blog" asp-action="index">News</a>
+                        <div class="dropdown">
+                        <a asp-controller="movie" asp-action="index">Movies</a>
+                            <div class="dropdown-content">
+                                <a asp-action="index" asp-controller="movie">Movies Now Playing</a>
+                                <a href="#">Movies Coming Soon</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <a href="#">Pages</a>
+                            <div class="dropdown-content">
+                                <a asp asp-controller="about" asp-action="index" >About Us</a>
+                                <a asp-controller="faq" asp-action="index" >Our Faqs</a>
+                                <a asp-controller="account" asp-action="index" >My Account</a>
+                            </div>
+                        </div>
+                        <a asp-controller="contact" asp-action="index" >Contact</a>
+                    </div>
+                </div>
+                <div class="search_container">
+                    <img id="searchIcon" class="search-icon" width="30" height="30" style="cursor: pointer;"
+                         src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png" alt="search--v1" />
+                <div class="dropdown">
+                    <img id="userIcon" width="30" height="30" style="cursor: pointer;"
+                         src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/FFFFFF/external-user-user-flatart-icons-outline-flatarticons-15.png"
+                         alt="external-user-user-flatart-icons-outline-flatarticons-15" />
+                    <div style="right: 0%;" class="dropdown-content">
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <a asp-action="login" asp-controller="account">Login</a>
+                            <a asp-action="register" asp-controller="account">Register</a>
+                        }
+                        else
+                        {
+                            <a a asp-action="info" asp-controller="account">@User.Identity.Name</a>
+                            <a asp-action="index" asp-controller="account">My Profile</a>
+                            <a asp-action="logout" asp-controller="account">Log Out</a>
+                        }
+                    </div>
+                </div>
+
+
+                </div>
+                <div id="searchModal" class="search-modal">
+                    <div class="search-modal-content">
+                        <div class="search-input-container">
+                            <input id="searchInput" type="search" class="search-input" placeholder="Search..." />
+                            <button class="search-button">
+                                <img width="30" height="30" style="cursor: pointer;" src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png" alt="search--v1" alt="Search Icon" />
+                            </button>
+                        </div>
+                        <button id="closeModalButton" class="close-button"><img width="32" height="32" src="https://img.icons8.com/external-inkubators-basic-outline-inkubators/32/FFFFFF/external-close-button-it-and-computer-inkubators-basic-outline-inkubators.png" alt="external-close-button-it-and-computer-inkubators-basic-outline-inkubators" /></button>
+                    </div>
+                </div>
+            </div>
+            @RenderSection("HomeHtml",false)
+            @RenderSection("FaqHtml",false)
+            @RenderSection("AboutHtml",false)
+            @RenderSection("AccountPageHtml",false)
+            @RenderSection("BlogHtml",false)
+            @RenderSection("BlogDetailsHtml",false)
+            @RenderSection("ContactHtml",false)
+            @RenderSection("MovieBookingHtml",false)
+           
+            
+        </nav>
+ @RenderBody()
+        <!-- Footer -->
+        <footer>
+            <div class="footer-info">
+                <div class="socials">
+                    <div class="socials-left">
+                    <img src="~/Images/home-page/icons/logo.png">
+                    </div>
+                    <div class="socials-right">
+                        <div class="help">
+                            <p>Help</p>
+                            <div class="seperator">/</div>
+                            <p>Privacy Policy</p>
+                        </div>
+                        <div class="wrap">
+                        <img src="~/Images/home-page/icons/twitter.png">
+                        </div>
+                        <div class="wrap">
+                        <img src="~/Images/home-page/icons/facebook.png">
+                        </div>
+                        <div class="wrap">
+                        <img src="~/Images/home-page/icons/pinterest.png">
+                        </div>
+                        <div class="wrap">
+                        <img src="~/Images/home-page/icons/instagram.jpg">
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div class="additional-info">
+                    <div class="footer-buy-ticket">
+                        Buy movie tickets easily with Aovis system nationwide
+                        <div class="footer-btn">
+                            <a href="#">Get Your Ticket</a>
+                        </div>
+                    </div>
+                    <div class="footer-movies">
+                        <h2>Movies</h2>
+                        <ul>
+                            <li class=>Thriller</li>
+                            <li class=>Action</li>
+                            <li class=>Comedy</li>
+                            <li class=>Fiction</li>
+                            <li class=>Historical</li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h2>Links</h2>
+                        <ul>
+                            <li>About</li>
+                            <li>My account</li>
+                            <li>News</li>
+                            <li>Contact</li>
+                        </ul>
+                    </div>
+                    <div class="subscribe">
+                        <h2>Newsletter</h2>
+                        <p>Subscribe to Leitmotif newsletter <br>this very day.</p>
+                        <div class="email-box">
+                            <input type="email" name="Email" placeholder="Email Adress">
+                            <button type="submit"><span class="send">Send</span></button>
+                        </div>
+                        <label class="terms-label">
+                            <input type="radio" name="terms" class="terms-checkbox">
+                            <p>I agree to all terms and policies of <br>the company</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button onclick="topFunction()" id="myBtn" title="Go to top">
+                <img src="~/Images/reset-password/icons/arrow-top.png">
+            </button>
+        </footer>
+    <script src="~/Js/auto-scroll.js"></script>
+    <script src="~/Js/sticky-navbar.js"></script>
+    <script src="~/Js/slick-slide-home.js"></script>
+    <script src="~/Js/slider-home.js"></script>
+    <script src="~/Js/image-gallery-home.js"></script>
+    <script src="~/Js/search-overlay.js"></script>
+    <script src="~/Js/page-loader.js"></script>
+    <script src="~/Js/accordion-faq-page.js"></script>
+    <script src="~/Js/sidebar.js"></script>
+    <script src="~/Js/text-area-contact.js"></script>
+    <script src="~/Js/category-filter.js"></script>
+</body>
+
+</html>

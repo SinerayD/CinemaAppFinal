@@ -1,0 +1,11 @@
+﻿@model List<Blog>
+
+@foreach (var item in Model)
+{
+    <li class="search-nameli">
+        <a style="color:gray !important; "  asp-action="Detail" asp-route-id="@item.Id">
+            <img src="~/assets/images/products/@item.Image" alt="banner" width="100" height="100">
+            @item.Title @item.Description
+        </a>
+    </li>
+}

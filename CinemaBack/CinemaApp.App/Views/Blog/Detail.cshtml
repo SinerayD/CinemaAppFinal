@@ -1,0 +1,173 @@
+﻿@model BlogVm
+
+<link rel="stylesheet" href="~/Css/blog-details.css">
+@section BlogDetailsHtml{
+    <div  class="background-image-container">
+        <div class="background-image">
+            <img style="object-fit:cover;" src="~/Images/blog-page/images/@Model.blog.Image" alt="Image 1">
+        </div>
+        <div class="breadcrumbs-title-container">
+            <div class="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>Home</li>
+                    <img style="width: 15px;" src="~/Images/blog-page/icons/arrow-right.png">
+                    <li>Blog Details</li>
+                </ul>
+            </div>
+            <div class="title">
+                <h1>@Model.blog.Title</h1>
+            </div>
+        </div>
+        <div class="dashed-line">
+            <img src="~/Images/blog-page/images/image-lines-header.jpg">
+        </div>
+    </div>
+}
+    <section id="container">
+        <div class="blog-container">
+            <div class="blog-post">
+                <div class="blog-image">
+                    <img src="~/Images/blog-page/images/@Model.blog.Image">
+                </div>
+                <div class="blog-title">
+                    <a href="#">
+                        <h1>@Model.blog.Title</h1>
+                    </a>
+                </div>
+                <div class="blog-info">
+                    <ul class="blog-info">
+                        <li class="date" style="color: #737373;">
+                            <img class="date-icon" src="~/Images/blog-detail/icons/tear-of-calendar-16.png" style="margin-right: 7px;">
+                            @Model.blog.CreatedAt.ToString("MMMM dd, yyyy")
+                        </li>
+                        <li class="category">
+                            <img class="category-icon" src="~/Images/blog-detail/icons/folder-16.png" style="margin-right: 7px;">
+                        @foreach (var category in Model.blog.BlogCategories.Select(bc => bc.Category))
+                        {
+                            <a href="#">@category.Name</a>
+                        }
+                        </li>
+                        <li class="comment" style="color: #737373;">
+                            <img class="comment-icon" src="~/Images/blog-detail/icons/comments-16.png" style="margin-right: 7px;">
+                            <a href="#">0 Comments</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="blog-text">
+                    <p style=" color: #737373;">
+                        @Model.blog.Description
+                    </p>
+                    <div class="quote-container">
+                        <img class="quote" src="~/Images/blog-detail/icons/double-quote-serif-left-32.png">
+                        <p class="quote-text">
+                            @Model.blog.Description
+                        </p>
+                    </div>
+                    <p style="line-height: 1.86em;color: #737373;">
+                        @Model.blog.Description
+                    </p>
+                    <p style="line-height: 1.86em;color: #737373; margin-top: 30px; margin-bottom: 30px;">
+                        @Model.blog.Description
+                    </p>
+                    <h1 style="font-weight: bold; margin-bottom: 15px;">
+                        @Model.blog.Description
+                    </h1>
+                    <p style="line-height: 1.86em;color: #737373; margin-bottom: 60px;">
+                        @Model.blog.Description
+                    </p>
+                </div>
+                <div class="blog-post-tags">
+                @foreach (var tag in Model.blog.BlogTags)
+                {
+                    <a href="#">@tag?.Tag.Name</a>
+                }
+            </div>
+                <div class="blog-comment">
+                    <div class="comment-title">
+                        <h3>Leave A Reply</h3>
+                    </div>
+                    <div class="user-input">
+                        <input id="user" placeholder="Name" type="text" size="30" maxlength="245" required>
+                        <input id="user" placeholder="Email" type="email" size="30" maxlength="100" required>
+                    </div>
+                    <form method="post" id="comment-form">
+                        <div class="comment-form">
+                            <textarea id="comment" class="comment" cols="45" rows="10" maxlength="600" required
+                                  placeholder="Comment"></textarea>
+                        </div>
+                        <div class="comment-btn">
+                            <button>Post Comment</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        <aside id="sidebar">
+            <div class="search">
+                <form role="search" method="get" class="blog-search">
+                    <input type="text" class="search-field" placeholder="Search...">
+                </form>
+            </div>
+            <div class="lastest-posts">
+                <h3 style="font-weight: bolder; margin-bottom: 30px; font-size: 20px;">Latest Posts</h3>
+                @foreach (var item in ViewBag.Blogs)
+                {
+                    <div class="item">
+                        <div class="media">
+                            <a href="#"><img src="~/Images/blog-page/images/@item.Image"> </a>
+                        </div>
+                        <div class="info">
+                            <div class="item-comment">
+                                <div class="left">
+                                    <img style="width: 20px; height: 20px;" src="~/Images/blog-page/icons/speech-bubble-3-20.png">
+                                </div>
+                                <div class="right">
+                                    <a style="color: #737373;" href="#">0</a>
+                                    <span class="text-comment">Comments</span>
+                                </div>
+                            </div>
+                            <div class="title">
+                                <a asp-controller="blog" asp-action="detail" asp-route-id="@item.Id">
+                                    <h4>
+                                        @if (item.Title.Length <= 30)
+                                        {
+                                            <a asp-action="detail" asp-controller="blog" asp-route-id="@item.Id">@item.Title</a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-action="detail" asp-controller="blog" asp-route-id="@item.Id">@item.Title.Substring(0, 30)</a>
+                                        }
+                                    </h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="blog-categories">
+                <h4 style="font-size: 20px; margin-bottom: 30px;" class="category-title">Categories</h4>
+                <ul>
+                    @foreach (var item in ViewBag.Categories)
+                    {
+                        <li class="cat-item">
+                            <img class="cat-icon" src="~/Images/blog-page/icons/folder-2.png">
+                            <a asp-action="detail" asp-controller="blog" asp-route-id="@item.Id">@item.Name</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="blog-tags">
+                <h4 style="font-size: 20px;">Tags</h4>
+                <div class="tag-items">
+                    <div class="tag-item">
+                        @foreach (var item in ViewBag.Tags)
+                        {
+                            <a href="#">@item.Name</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+    </section>
+

@@ -1,0 +1,226 @@
+﻿@model MovieVm
+<link rel="stylesheet" href="~/Css/movie-detail.css">
+
+<div class="background-image-container">
+    <div class="background-image">
+        <img src="~/Images/movie-detail/images/@Model.movie.TrailerImage" alt="Image 1">
+    </div>
+    <div class="breadcrumbs-title-container">
+        <div class="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>Home</li>
+                <img style="width: 15px;" src="~/Images/movie-detail/icons/arrow-right.png">
+                @foreach (var category in Model.movie.movieCategories.Select(bc => bc.Category))
+                {
+                    <a>@category.Name</a>
+                }
+                <img style="width: 15px;" src="~/Images/movie-detail/icons/arrow-right.png">
+                <a asp-action="detail" asp-controller="movie" asp-route-id="@Model.movie.Id" class="breadcrumb-link">@Model.movie.Name</a>
+            </ul>
+        </div>
+        <div class="title">
+            <h1>@Model.movie.Name</h1>
+        </div>
+    </div>
+    <div class="dashed-line">
+        <img src="~/Images/movie-detail/images/image-lines-header.jpg">
+    </div>
+</div>
+<!--Movie Detail section-->
+<section id="container">
+    <div class="movie-details">
+        <div class="top-content">
+            <div class="movie-heading">
+                <h1 class="movie-title">@Model.movie.Name</h1>
+                <div class="categories-and-time">
+                    <div class="movie-category">
+                        @foreach (var category in Model.movie.movieCategories.Select(bc => bc.Category))
+                        {
+                            <a style="color: #737373; font-size: 16px;" href="#" title="Thriller">@category.Name</a>
+                        }
+                    </div>
+                    <div style="color: #737373; font-size: 16px;" class="seperator">/</div>
+                    <span style="color: #737373; font-size: 16px;" class="running-time">@Model.movie.RunningTime Mins</span>
+                </div>
+            </div>
+            <div class="details-button">
+                <a href="#">Get Ticket</a>
+            </div>
+        </div>
+        <div class="movie-images">
+            <img src="~/Images/home-page/images/@Model.movie.Image">
+            <img class="trailer-image" src="~/Images/movie-detail/images/@Model.movie.TrailerImage">
+            <div class="trailer-btn-wrapper">
+                <div class="trailer-btn">
+                    <div class="play-icon">
+                        <a href="@Model.movie.VideoUrl" target="_blank">
+                            <img src="~/Images/movie-detail/icons/icons8-play-64.png">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div" class="trailer-text">
+                <p>Watch the Trailer</p>
+        </div>
+      </div>
+    </div>
+
+        <ul class="info-list">
+            <li class="item item-0">
+                <h4 class="title">Director:</h4>
+                <span class="value">@Model.movie.Director</span>
+            </li>
+            <li class="item item-1">
+                <h4 class="title">Preimier:</h4>
+                <span class="value">@Model.movie.CreatedAt.ToString("MMMM dd, yyyy")</span>
+            </li>
+            <li class="item item-2">
+                <h4 class="title">Writer:</h4>
+                <span class="value">@Model.movie.Writer</span>
+            </li>
+            <li class="item item-3">
+                <h4 class="title">Time:</h4>
+                <span class="value">@Model.movie.RunningTime Mins</span>
+            </li>
+            <li class="item item-4">
+                <h4 class="title">Rating:</h4>
+                <span class="value">@Model.movie.Rating %</span>
+            </li>
+        </ul>
+        <div class="movie-cast">
+            <div class="movie-cast-title">
+                <h2>Top Cast</h2>
+            </div>
+        <div class="movie-cast-list">
+            @if (Model.movie.movieActors != null)
+            {
+                @foreach (var actor in Model.movie.movieActors.Select(ma => ma.Actor))
+                {
+                    <div class="movie-cast-item">
+                        <div class="cast-avatar">
+                            <img src="~/Images/movie-detail/images/@actor?.Image">
+                        </div>
+                        <div class="cast-info">
+                            <h4 class="cast-name">@actor?.FullName</h4>
+                            <p class="cast-description">as @actor?.Role</p>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        </div>
+        <div class="main-content">
+            <div class="story-title">
+                <h2>Story Line</h2>
+                <p>
+                   @Model.movie.Description
+                </p>
+            </div>
+        </div>
+   
+    <div class="movie-related">
+        <div class="related-title">
+            <h2>More Movies Like This</h2>
+        </div>
+        <div class="movie-list">
+            <div class="movie">
+                <a href="#"></a>
+                <div class="movie-image">
+                    <img src="./Images/movie-detail/images/movie-image-3.jpg">
+                </div>
+                <div class="movie-info">
+                    <div class="category-and-time">
+                        <div class="movie-category">
+                            <a href="#" title="Thriller">Thriller</a>
+                        </div>
+                        <div class="seperator">/</div>
+                        <span class="running-time">180 Mins</span>
+                    </div>
+                    <div class="title">
+                        <a href="#">
+                            <h3>The Scariest Dream</h3>
+                        </a>
+                    </div>
+                    <div class="ticket-btn">
+                        <a href="#">Get Ticket</a>
+                    </div>
+                </div>
+            </div>
+            <div class="movie">
+                <a href="#"></a>
+                <div class="movie-image">
+                    <img src="./Images/movie-detail/images/movie-image-04.jpg">
+                </div>
+                <div class="movie-info">
+                    <div class="category-and-time">
+                        <div class="movie-category">
+                            <a href="#" title="Thriller">Thriller</a>
+                        </div>
+                        <div class="seperator">/</div>
+                        <span class="running-time">180 Mins</span>
+                    </div>
+                    <div class="title">
+                        <a href="#">
+                            <h3>The Scariest Dream</h3>
+                        </a>
+                    </div>
+                    <div class="ticket-btn">
+                        <a href="#">Get Ticket</a>
+                    </div>
+                </div>
+            </div>
+            <div class="movie">
+                <a href="#"></a>
+                <div class="movie-image">
+                    <img src="./Images/movie-detail/images/movie-image-05.jpg">
+                </div>
+                <div class="movie-info">
+                    <div class="category-and-time">
+                        <div class="movie-category">
+                            <a href="#" title="Thriller">Thriller</a>
+                        </div>
+                        <div class="seperator">/</div>
+                        <span class="running-time">180 Mins</span>
+                    </div>
+                    <div class="title">
+                        <a href="#">
+                            <h3>The Scariest Dream</h3>
+                        </a>
+                    </div>
+                    <div class="ticket-btn">
+                        <a href="#">Get Ticket</a>
+                    </div>
+                </div>
+            </div>
+            <div class="movie">
+                <a href="#"></a>
+                <div class="movie-image">
+                    <img src="./Images/movie-detail/images/movie-image-06.jpg">
+                </div>
+                <div class="movie-info">
+                    <div class="category-and-time">
+                        <div class="movie-category">
+                            <a href="#" title="Thriller">Thriller</a>
+                        </div>
+                        <div class="seperator">/</div>
+                        <span class="running-time">180 Mins</span>
+                    </div>
+                    <div class="title">
+                        <a href="#">
+                            <h3>The Scariest Dream</h3>
+                        </a>
+                    </div>
+                    <div class="ticket-btn">
+                        <a href="#">Get Ticket</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+</section>
+<!--End Of Movie Detail section-->

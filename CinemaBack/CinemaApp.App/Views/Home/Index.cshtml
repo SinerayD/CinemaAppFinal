@@ -1,0 +1,210 @@
+﻿@model HomeVm
+
+<link rel="stylesheet" href="./Css/home.css">
+<div class="slideshow-container">
+    <div class="slides">
+        @foreach (var item in Model.Sliders)
+        {
+            <div class="slideshow">
+                <img src="./Images/home-page/images/@item.Image" alt="Image 1">
+                <div class="main-item-wrapper">
+                    <div class="movie-heading">
+                        <h3 class="movie-category-slider"> @item.MovieGenre Movie</h3>
+                        <a class="slider-title" href="#">@item.Title</a>
+                    </div>
+                    <p class="movie-expert"> Writen and Directed by @item.Writer / @item.Country @item.Year </p>
+                    <div class="button-wrapper">
+                        <a class="more-info-btn" href="#">More Info</a>
+                        <a class="ticket-booking-btn" href="#">Get Ticket</a>
+                    </div>
+                </div>
+            </div>
+        }
+     
+    </div>
+</div>
+<div style="margin-top: 10px;" class="dashed-line">
+    <img src="./Images/home-page/images/image-lines-header.jpg">
+</div>
+<!--End of Navbar section-->
+<!-- Movies Now Playing -->
+<section id="container">
+    <div class="movies-now-playing">
+        <div class="movies-heading">
+            <div class="icon">
+                <img src="~/Images/home-page/icons/film-icon.jpg" style="width:30px; ">
+            </div>
+            <div class="headings">
+                <h3>Watch New Movies</h3>
+                <h4>Movies Now Playing</h4>
+            </div>
+        </div>
+        <div class="filters">
+            <div class="categories">
+                <div class="category active" data-filter="all">
+                    <p id="all">All</p>
+                </div>
+                @foreach (var category in Model.Categories)
+                {
+                    <div class="category" data-filter="@category.Name.ToLower()">
+                        <p id="@category.Name.ToLower()">@category.Name</p>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="movies-container">
+            @foreach (var movie in Model.Movies)
+            {
+                <div class="all">
+                    @foreach (var cat in movie.movieCategories)
+                    {
+                        <div class="category-@cat.Category.Name.ToLower()">@cat.Category.Name</div>
+                    }
+                    <img src="./Images/home-page/images/@movie.Image">
+                    <div class="category-and-time">
+                        <div class="movie-category">
+                            @foreach (var item in movie.movieCategories)
+                            {
+                                <a href="./movie-booking.html">@item?.Category?.Name</a>
+                            }
+                        </div>
+                        <div class="seperator">/</div>
+                        <span class="running-time">@movie.RunningTime Mins</span>
+                    </div>
+                    <div class="movie-title">
+                        <a asp-action="detail" asp-controller="movie" asp-route-id="@movie.Id">@movie.Name</a>
+                    </div>
+                    <div class="movie-btn">
+                        <a href="./movie-booking.html">Get Ticket</a>
+                    </div>
+                </div>
+            }
+        </div>
+
+
+    </div>
+</section>
+<!-- End Of Movies Now Playing -->
+
+<div style="margin-bottom:60px;" class="box">
+    <h4 style="color: white; font-size: 40px;">Our Photo Gallery</h4>
+    <div class="bookmark"></div>
+</div>
+
+<section style="margin-top:50px;" id="container">
+        <!-- Watch Movie List -->
+        <div class="slider">
+            <div class="slide-track">
+                <div class="slide">
+                    @foreach (var image in Model.Galleries)
+                    {
+                    <div class="slide"><img src="./Images/home-page/images/@image.Image" alt="Image 1"></div>
+                }
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Modal HTML structure -->
+        <div class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modal-image">
+        </div>
+</section>
+<!-- Blog News -->
+<section id="container">
+    <div class="blog-container">
+        <div class="blog-background">
+            <img class="black" src="./Images/home-page/images/black_image.jpg">
+        </div>
+        <div class="blog-headings">
+            <div class="blog-icon">
+                <img class="blog-icon" src="./Images/home-page/icons/movie_icon.jpg">
+            </div>
+            <div class="blog-heading">
+                <h3 class="sub-title">Latest News</h3>
+                <h1>Latest News & Articles <br> from the Posts</h1>
+            </div>
+        </div>
+        <div class="blog-text">
+            <p>
+                Phasellus non cursus ligula, sed mattis urna. Aenean ac tor <br> gravida, volutpat quam eget, consequat elit.
+            </p>
+        </div>
+        <div class="blog-cards-container">
+            @foreach (var blog in Model.Blogs)
+            {
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="./Images/blog-page/images/@blog.Image">
+                        <div class="blog-time">
+                            <span>@blog.CreatedAt.ToString("MMMM dd, yyyy")</span>
+                        </div>
+                    </div>
+                    <div class="specs">
+                        <div class="comment">
+                            <span class="left-comment">
+                                <img src="./Images/home-page/icons/comment.png">
+                            </span>
+                            <span class="right-comment">0 Comments</span>
+                        </div>
+                    </div>
+                    <div class="blog-title">
+                        <h2>
+                            @if (blog.Title.Length <= 50)
+                            {
+                                <a asp-action="detail" asp-controller="blog" asp-route-id="@blog.Id">@blog.Title</a>
+                            }
+                            else
+                            {
+                                <a asp-action="detail" asp-controller="blog" asp-route-id="@blog.Id">@blog.Title.Substring(0,50)</a>
+                            }
+                        </h2>
+                    </div>
+                    <div class="read-more">
+                        <a asp-action="detail" asp-controller="blog" asp-route-id="@blog.Id">Read More</a>
+                    </div>
+                </div>
+            }
+            
+        </div>
+    </div>
+</section>
+<!-- End Of Blog News -->
+<!-- Discount Section -->
+<section>
+    <div style="margin-bottom: -5px;" class="discount">
+        <img class="discount-background" src="./Images/home-page/images/background-camera-home-.png">
+        <div class="discount-headings">
+            <div class="discount-title">
+                Selected Movies
+            </div>
+            <div class="discount-heading">
+                Enjoy 30% Discount <br> On Tickets
+            </div>
+        </div>
+        <div class="popcorn">
+            <img src="./Images/home-page/images/pop-corn-home.png">
+        </div>
+        <div class="popcorn-line">
+            <img src="./Images/home-page/images/image-lines-enjoy-home-3.png">
+        </div>
+        <div class="dots">
+            <img src="./Images/home-page/images/image-dots-enjoy-home-3.png">
+        </div>
+        <div class="discount-button">
+            <a href="#">Get Ticket</a>
+        </div>
+    </div>
+</section>
+<!-- End Of Discount Section -->
+<!-- Modal Structure -->
+<div id="registrationModal" class="modal">
+    <div class="modal-content">
+        <h4>Registration Successful</h4>
+        <p>Please verify your email.</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>

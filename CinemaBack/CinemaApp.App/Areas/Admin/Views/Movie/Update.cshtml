@@ -1,0 +1,89 @@
+﻿@model Movie
+
+<h1>Update Movie</h1>
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data" asp-controller="Movie" asp-action="Update" asp-route-id="@Model.Id">
+        <div class="form-group">
+            <label asp-for="@Model.Name">Movie Name</label>
+            <input type="text" class="form-control" asp-for="@Model.Name" />
+            <span asp-validation-for="Name" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.RunningTime">Running Time</label>
+            <input type="text" class="form-control" asp-for="@Model.RunningTime" />
+            <span asp-validation-for="RunningTime" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.ReleaseDate">Release Date</label>
+            <input type="text" class="form-control" asp-for="@Model.ReleaseDate" />
+            <span asp-validation-for="ReleaseDate" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Director">Director</label>
+            <input type="text" class="form-control" asp-for="@Model.Director" />
+            <span asp-validation-for="Director" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Rating">Rating</label>
+            <input type="text" class="form-control" asp-for="@Model.Rating" />
+            <span asp-validation-for="Rating" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Description">Description</label>
+            <input type="text" class="form-control" asp-for="@Model.Description" />
+            <span asp-validation-for="Description" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Writer">Writer</label>
+            <input type="text" class="form-control" asp-for="@Model.Writer" />
+            <span asp-validation-for="Writer" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.File">Image</label>
+            <input type="file" class="form-control" asp-for="@Model.File" />
+            <span asp-validation-for="File" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.VideoUrl">Video URL</label>
+            <input type="text" class="form-control" asp-for="@Model.VideoUrl" />
+            <span asp-validation-for="VideoUrl" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TrailerFile">Trailer Image</label>
+            <input type="file" class="form-control" asp-for="@Model.TrailerFile" />
+            <span asp-validation-for="TrailerFile" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CategoryIds">Categories</label>
+            <select multiple asp-for="CategoryIds" class="form-select" aria-label="Default select example">
+                @foreach (var item in ViewBag.Categories)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+            <span asp-validation-for="CategoryIds" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ActorIds">Actors</label>
+            <select multiple asp-for="ActorIds" class="form-select" aria-label="Default select example">
+                @foreach (var item in ViewBag.Actors)
+                {
+                    <option value="@item.Id">@item.FullName</option>
+                }
+            </select>
+            <span asp-validation-for="ActorIds" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LanguageIds">Language</label>
+            <select multiple asp-for="LanguageIds" class="form-select" aria-label="Default select example">
+                @foreach (var item in ViewBag.Languages)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+            <span asp-validation-for="LanguageIds" class="text text-danger"></span>
+        </div>
+        <button type="submit" style="background-color: #4CAF50; border: none;border-radius:10px;color: white;padding: 16px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;transition-duration: 0.4s;cursor: pointer;margin-top:20px">Update</button>
+    </form>
+</div>

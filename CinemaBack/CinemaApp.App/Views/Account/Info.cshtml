@@ -1,0 +1,67 @@
+﻿@model AppUser
+<link rel="stylesheet" href="~/Css/my-account.css">
+<div class="background-image-container">
+    <div class="background-image">
+        <img style=" filter: brightness(0.5); " src="~/Images/my-account/images/login-register.jpg" alt="Image 1">
+    </div>
+    <div class="breadcrumbs-title-container">
+        <div class="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>Home</li>
+                <img style="width: 15px;" src="~/Images/my-account/icons/arrow-right.png">
+                <li>My Account</li>
+            </ul>
+        </div>
+        <div class="title">
+            <h1>My Account</h1>
+        </div>
+    </div>
+    <div class="dashed-line">
+        <img src="~/Images/my-account/images/image-lines-header.jpg">
+    </div>
+</div>
+<!--End of Navbar section-->
+
+<section id="container">
+   
+    <div style="display:none"> @TempData["updateduser"] </div>
+
+    <div id="message" class="form-container">
+        <h2 style="display:flex; flex-direction:column;align-items:center; font-size:30px;margin-bottom:30px;">My Account</h2>
+        <div class="form-section">
+            <!-- Info form -->
+            <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+            <form method="post" class="login-box">
+                <div class="login-box">
+
+                    <div class="form-label">
+                        <label asp-for="Name" for="name" class="label">Name<span class="required"></span></label>
+                        <input disabled asp-for="Name" type="text" id="name" class="name ele">
+                        <span class="text text-danger" asp-validation-for="Name"></span>
+                    </div>
+
+                    <div class="form-label">
+                        <label asp-for="SurName" for="surname" class="label">Surname<span class="required"></span></label>
+                        <input disabled asp-for="SurName" type="text" id="surname" class="surname ele">
+                      <span class="text text-danger" asp-validation-for="SurName"></span>
+                    </div>
+                    <div class="form-label">
+                        <label asp-for="UserName" for="username" class="label">Username<span class="required"></span></label>
+                        <input disabled asp-for="UserName" type="text" id="username" class="username ele">
+                        <span class="text text-danger" asp-validation-for="UserName"></span>
+                    </div>
+                    <div class="form-label">
+                        <label asp-for="Email" for="email" class="label">Email<span class="required"></span></label>
+                        <input disabled asp-for="Email" type="text" id="email" class="email ele">
+                        <span class="text text-danger" asp-validation-for="Email"></span>
+                    </div>
+                    <a asp-controller="account" asp-action="update" class="update-btn">Update</a>
+                </div>
+                
+
+            </form>
+        </div>
+    </div>
+</section>
+<script src="~/Js/my-account.js"></script>
+<script src="~/Js/toggle-password.js"></script>

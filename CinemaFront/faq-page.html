@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,500&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,500&family=Space+Grotesk:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,500&family=Space+Grotesk:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="./Css/faq-page.css">
+  <title>FAQ Page</title>
+</head>
+
+<body>
+  <nav>
+    <div class="navbar_container">
+      <div class="navbar_container_left">
+        <div class="logo">
+          <img style="width: 108px; cursor: pointer;" src="./Images/faq-page/icons/logo.png" class="page_icon"
+            alt="page icon">
+        </div>
+      </div>
+      <div class="navbar_container_right">
+        <div class="links_container">
+          <a href="#">Home</a>
+          <a href="#">Movies</a>
+          <a href="#">News</a>
+          <a href="#">Pages</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <div class="search_container">
+        <img id="searchIcon" class="search-icon" width="30" height="30" style="cursor: pointer;"
+          src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png" alt="search--v1" />
+        <img id="userIcon" width="30" height="30" style="cursor: pointer;"
+          src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/FFFFFF/external-user-user-flatart-icons-outline-flatarticons-15.png"
+          alt="external-user-user-flatart-icons-outline-flatarticons-15" />
+      </div>
+      <div id="searchModal" class="search-modal">
+        <div class="search-modal-content">
+          <div class="search-input-container">
+            <input id="searchInput" type="text" class="search-input" placeholder="Search..." />
+            <button class="search-button">
+              <img width="30" height="30" style="cursor: pointer;" src="https://img.icons8.com/ios-filled/50/FFFFFF/search--v1.png" alt="search--v1" alt="Search Icon" />
+            </button>
+          </div>
+          <button id="closeModalButton" class="close-button"><img width="16" height="16" src="https://img.icons8.com/external-inkubators-basic-outline-inkubators/16/FFFFFF/external-close-button-it-and-computer-inkubators-basic-outline-inkubators.png" alt="external-close-button-it-and-computer-inkubators-basic-outline-inkubators"/></button>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="background-image-container">
+      <div class="background-image">
+        <img src="./Images/faq-page/images/movie-detail-background.jpg" alt="Image 1">
+      </div>
+      <div class="breadcrumbs-title-container">
+        <div class="breadcrumbs">
+          <ul class="breadcrumb">
+            <li>Home</li>
+            <img style="width: 15px;" src="./Images/faq-page/icons/arrow-right.png">
+            <li>Our Faqs</li>
+          </ul>
+        </div>
+        <div class="title">
+          <h1>Our Faqs</h1>
+        </div>
+      </div>
+      <div class="dashed-line">
+        <img src="./Images/faq-page/images/image-lines-header.jpg">
+      </div>
+    </div>
+  </nav>
+  <!--End of Navbar section-->
+  <section id="container">
+    <div class="sidebar">
+      <ul class="sidebar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-section="should"> <img
+              src="./Images/faq-page/icons/arrow-right (2).png">Should</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-section="when"> <img
+              src="./Images/faq-page/icons/arrow-right (2).png">When</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-section="how"> <img
+              src="./Images/faq-page/icons/arrow-right (2).png">How</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-section="what"> <img
+              src="./Images/faq-page/icons/arrow-right (2).png">What</a>
+        </li>
+      </ul>
+    </div>
+    <div class="faq-container">
+      <div class="faq-section" id="should">
+        <div class="accordion-item">
+          <button class="accordion-button" aria-expanded="false">
+            <span class="accordion-title">Should I use internal employees or hire professional actors in my
+              video?</span>
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Aliquam viverra arcu. Donec aliquet blandit simply free text enim feugiat. Suspendisse id quam sed eros
+              tincidunt luctus sit amet eu nibh egestas tempus turpis, sit amet mattis magna varius non. Cras tincidunt
+              imperdiet leo non luctus. Sed a pellentesque erat.Sed quis massa aliquet, tincidunt sapien sit amet,
+              scelerisque diam. In maximus, leo a fringilla semper, lorem augue.
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="faq-section" id="when">
+        <div class="accordion-item">
+          <button class="accordion-button" aria-expanded="false">
+            <span class="accordion-title">When does a certain movie come out on dvd?</span>
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Aliquam viverra arcu. Donec aliquet blandit simply free text enim feugiat. Suspendisse id quam sed eros
+              tincidunt luctus sit amet eu nibh egestas tempus turpis, sit amet mattis magna varius non. Cras tincidunt
+              imperdiet leo non luctus. Sed a pellentesque erat.Sed quis massa aliquet, tincidunt sapien sit amet,
+              scelerisque diam. In maximus, leo a fringilla semper, lorem augue.
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button" aria-expanded="false">
+            <span class="accordion-title">When does a certain movie come out on dvd?</span>
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Aliquam viverra arcu. Donec aliquet blandit simply free text enim feugiat. Suspendisse id quam sed eros
+              tincidunt luctus sit amet eu nibh egestas tempus turpis, sit amet mattis magna varius non. Cras tincidunt
+              imperdiet leo non luctus. Sed a pellentesque erat.Sed quis massa aliquet, tincidunt sapien sit amet,
+              scelerisque diam. In maximus, leo a fringilla semper, lorem augue.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-section" id="how">
+        <div class="accordion-item">
+          <button class="accordion-button" aria-expanded="false">
+            <span class="accordion-title">How do I submit ideas or scripts to be considered?</span>
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Aliquam viverra arcu. Donec aliquet blandit simply free text enim feugiat. Suspendisse id quam sed eros
+              tincidunt luctus sit amet eu nibh egestas tempus turpis, sit amet mattis magna varius non. Cras tincidunt
+              imperdiet leo non luctus. Sed a pellentesque erat.Sed quis massa aliquet, tincidunt sapien sit amet,
+              scelerisque diam. In maximus, leo a fringilla semper, lorem augue.
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-button" aria-expanded="false">
+            <span class="accordion-title">How do I submit ideas or scripts to be considered?</span>
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Aliquam viverra arcu. Donec aliquet blandit simply free text enim feugiat. Suspendisse id quam sed eros
+              tincidunt luctus sit amet eu nibh egestas tempus turpis, sit amet mattis magna varius non. Cras tincidunt
+              imperdiet leo non luctus. Sed a pellentesque erat.Sed quis massa aliquet, tincidunt sapien sit amet,
+              scelerisque diam. In maximus, leo a fringilla semper, lorem augue.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-section" id="what">
+        <div class="accordion-item">
+          <button class="accordion-button" aria-expanded="false">
+            <span class="accordion-title">Preparation of documents required for the planned route?</span>
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Aliquam viverra arcu. Donec aliquet blandit simply free text enim feugiat. Suspendisse id quam sed eros
+              tincidunt luctus sit amet eu nibh egestas tempus turpis, sit amet mattis magna varius non. Cras tincidunt
+              imperdiet leo non luctus. Sed a pellentesque erat.Sed quis massa aliquet, tincidunt sapien sit amet,
+              scelerisque diam. In maximus, leo a fringilla semper, lorem augue.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-info">
+      <div class="socials">
+        <div class="socials-left">
+          <img src="./Images/faq-page/icons/logo.png (2).png">
+        </div>
+        <div class="socials-right">
+          <div class="help">
+            <p>Help</p>
+            <div class="seperator">/</div>
+            <p>Privacy Policy</p>
+          </div>
+          <div class="wrap">
+            <img src="./Images/faq-page/icons/twitter.png">
+          </div>
+          <div class="wrap">
+            <img src="./Images/faq-page/icons/facebook.png">
+          </div>
+          <div class="wrap">
+            <img src="./Images/faq-page/icons/pinterest.png">
+          </div>
+          <div class="wrap">
+            <img src="./Images/faq-page/icons/instagram.jpg">
+          </div>
+        </div>
+      </div>
+      <div class="additional-info">
+        <div class="footer-buy-ticket">
+          Buy movie tickets easily with Aovis system nationwide
+          <div class="footer-btn">
+            <a href="#">Get Your Ticket</a>
+          </div>
+        </div>
+        <div class="footer-movies">
+          <h2>Movies</h2>
+          <ul>
+            <li class=>Thriller</li>
+            <li class=>Action</li>
+            <li class=>Comedy</li>
+            <li class=>Fiction</li>
+            <li class=>Historical</li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h2>Links</h2>
+          <ul>
+            <li>About</li>
+            <li>My account</li>
+            <li>News</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+        <div class="subscribe">
+          <h2>Newsletter</h2>
+          <p>Subscribe to Leitmotif newsletter <br>this very day.</p>
+          <div class="email-box">
+            <input type="email" name="Email" placeholder="Email Adress">
+            <button type="submit"><span class="send">Send</span></button>
+          </div>
+          <label class="terms-label">
+            <input type="radio" name="terms" class="terms-checkbox">
+           <p>I agree to all terms and policies of <br>the company</p>
+        </label>
+        </div>
+      </div>
+    </div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="./Images/reset-password/icons/arrow-top.png"></button>
+  </footer>
+  <script src="./Js/auto-scroll.js"></script>
+  <script src="./Js/sticky-navbar.js"></script>
+  <script src="./Js/accordion-faq-page.js"></script>
+  <script src="./Js/search-overlay.js"></script>
+</body>
+
+</html>
