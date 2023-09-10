@@ -52,7 +52,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Actors");
+                    b.ToTable("Actors", (string)null);
                 });
 
             modelBuilder.Entity("CinemaApp.App.Entities.Language", b =>
@@ -78,7 +78,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Languages");
+                    b.ToTable("Languages", (string)null);
                 });
 
             modelBuilder.Entity("CinemaApp.App.Entities.Movie", b =>
@@ -136,7 +136,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Movies");
+                    b.ToTable("Movies", (string)null);
                 });
 
             modelBuilder.Entity("CinemaApp.App.Entities.MovieActor", b =>
@@ -168,7 +168,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasIndex("MovieId");
 
-                    b.ToTable("MovieActors");
+                    b.ToTable("MovieActors", (string)null);
                 });
 
             modelBuilder.Entity("CinemaApp.App.Entities.MovieCategory", b =>
@@ -200,7 +200,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasIndex("MovieId");
 
-                    b.ToTable("MovieCategories");
+                    b.ToTable("MovieCategories", (string)null);
                 });
 
             modelBuilder.Entity("CinemaApp.App.Entities.MovieLanguage", b =>
@@ -232,7 +232,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasIndex("MovieId");
 
-                    b.ToTable("MovieLanguages");
+                    b.ToTable("MovieLanguages", (string)null);
                 });
 
             modelBuilder.Entity("CinemaApp.Core.Entities.AppUser", b =>
@@ -338,7 +338,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Blogs");
+                    b.ToTable("Blogs", (string)null);
                 });
 
             modelBuilder.Entity("CinemaApp.Core.Entities.BlogCategory", b =>
@@ -370,7 +370,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("BlogCategories");
+                    b.ToTable("BlogCategories", (string)null);
                 });
 
             modelBuilder.Entity("CinemaApp.Core.Entities.BlogTag", b =>
@@ -402,7 +402,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasIndex("TagId");
 
-                    b.ToTable("BlogTags");
+                    b.ToTable("BlogTags", (string)null);
                 });
 
             modelBuilder.Entity("CinemaApp.Core.Entities.Category", b =>
@@ -428,7 +428,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("CinemaApp.Core.Entities.ContactMessage", b =>
@@ -465,7 +465,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ContactMessages");
+                    b.ToTable("ContactMessages", (string)null);
                 });
 
             modelBuilder.Entity("CinemaApp.Core.Entities.Gallery", b =>
@@ -490,7 +490,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Galleries");
+                    b.ToTable("Galleries", (string)null);
                 });
 
             modelBuilder.Entity("CinemaApp.Core.Entities.Slider", b =>
@@ -538,7 +538,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sliders");
+                    b.ToTable("Sliders", (string)null);
                 });
 
             modelBuilder.Entity("CinemaApp.Core.Entities.Subscribe", b =>
@@ -563,7 +563,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Subscribes");
+                    b.ToTable("Subscribes", (string)null);
                 });
 
             modelBuilder.Entity("CinemaApp.Core.Entities.Tag", b =>
@@ -589,7 +589,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tags");
+                    b.ToTable("Tags", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

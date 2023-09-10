@@ -17,10 +17,8 @@
     margin-bottom: 90px;
     gap: 20px;
     display: flex;
-    flex-direction: column;
   }
   
-
   .navbar_container {
     position: fixed;
     display: flex;
@@ -457,14 +455,19 @@
    padding: 30px 30px 20px 30px;
    background-color: #f3f3f3;
   }
+  .blog-post{
+    width: 800px;
+  }
   .blog-post-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 20px;
-    border-top: 1px solid #e4e4e4; 
-    padding-top: 50px; 
+    margin: 20px 0;
+    border-top: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    padding: 50px 0;
   }
+  
   
   .blog-post-tags a {
     text-decoration: none;
@@ -812,3 +815,67 @@ label a:hover {
   #myBtn:hover {
     background-color: #555;
   }
+  .mb-5 {
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+  }
+  
+  .mb-4 {
+    margin-bottom: 2rem;
+  }
+  .btn{
+    padding: 8px 20px;
+    font-size: 1em;
+    border: 1px solid transparent;
+    background-color:#f0f0f0;
+    color:#737373;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.4s, border-color 0.4s, color 0.4s;
+  }
+  .btn:hover {
+    background-color:#D96C2C;
+    color: white;
+  }
+  h6{
+    font-size: 14px;
+  }
+  h6 a{
+    font-size: 16px;
+    color:#D96C2C;
+    font-weight: bold;
+  }
+  .d-flex {
+    display: flex;
+  }
+  
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .rounded-circle {
+    border-radius: 50%;
+  }
+  
+  .ps-3 {
+    padding-left: 1rem;
+  }
+  
+  .ms-5 {
+    margin-left: 1.25rem;
+  }
+  
+  h6 {
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    margin-bottom: 1rem;
+  }
+  
+  button {
+    margin-top: 0.5rem;
+  }
+  

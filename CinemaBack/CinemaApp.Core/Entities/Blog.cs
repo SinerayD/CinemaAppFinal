@@ -18,6 +18,7 @@ namespace CinemaApp.Core.Entities
         public string Description { get; set; }
         public List<BlogTag>? BlogTags { get; set; }
         public List<BlogCategory>? BlogCategories { get; set; }
+        public List<Comment>? Comments { get; set; }
         [NotMapped]
         public List<int> CategoryIds { get; set; }
         [NotMapped]
