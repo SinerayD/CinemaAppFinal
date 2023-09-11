@@ -46,19 +46,19 @@ namespace CinemaApp.App.Controllers
                 Email = registerView.Email
             };
 
-           IdentityResult identityResult= await _userManager.CreateAsync(appUser, registerView.Password);
+            IdentityResult identityResult = await _userManager.CreateAsync(appUser, registerView.Password);
             if (!identityResult.Succeeded)
             {
-                foreach(var item in identityResult.Errors)
+                foreach (var item in identityResult.Errors)
                 {
-                    ModelState.AddModelError("",item.Description);
+                    ModelState.AddModelError("", item.Description);
                 }
                 return View(registerView);
             }
             await _userManager.AddToRoleAsync(appUser, "User");
 
-             string token = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);
-           
+            string token = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);
+
             var link = Url.Action(action: "VerifyEmail", controller: "account", values: new { token = token, email = appUser.Email }, protocol: Request.Scheme);
 
             string path = Path.Combine(_environment.WebRootPath, "Templates", "confirm-email.html");
@@ -86,8 +86,8 @@ namespace CinemaApp.App.Controllers
             smtp.Port = 587;
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.Send(mail);
-           
-            return RedirectToAction("index" ,"home");
+
+            return RedirectToAction("index", "home");
         }
 
         public async Task<IActionResult> VerifyEmail(string token, string email)
@@ -109,7 +109,7 @@ namespace CinemaApp.App.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login( LoginViewModel login)
+        public async Task<IActionResult> Login(LoginViewModel login)
         {
 
             if (!ModelState.IsValid)
@@ -118,8 +118,8 @@ namespace CinemaApp.App.Controllers
             }
 
             AppUser appUser = await _userManager.FindByNameAsync(login.UserName);
-            
-            if(appUser == null)
+
+            if (appUser == null)
             {
                 ModelState.AddModelError("", "Username or password is incorrect");
                 return View();
@@ -140,7 +140,7 @@ namespace CinemaApp.App.Controllers
 
             return RedirectToAction("index", "home");
         }
-        
+
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
@@ -243,7 +243,7 @@ namespace CinemaApp.App.Controllers
             }
 
             string token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            
+
             var link = Url.Action(action: "resetpassword", controller: "account", values: new { token = token, email = email }, protocol: Request.Scheme);
 
             MailMessage mail = new MailMessage();
@@ -262,7 +262,7 @@ namespace CinemaApp.App.Controllers
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.Send(mail);
 
-            return RedirectToAction("index","home");
+            return RedirectToAction("index", "home");
         }
 
 
@@ -276,7 +276,7 @@ namespace CinemaApp.App.Controllers
             }
             ResetPasswordViewModel resetPasswordView = new ResetPasswordViewModel()
             {
-                Email= email,
+                Email = email,
                 Token = token
             };
             return View(resetPasswordView);

@@ -26,11 +26,9 @@
     </div>
 }
 <section id="container">
-        <div class="header-right">
-            <div class="input">
-                <input type="text" class="search-name" id="searchinp" placeholder="Search...">
-            </div>
-        </div>
+
+   
+   
     <div class="blog-container">
         @foreach (var item in Model)
         {
@@ -83,10 +81,13 @@
 
         <aside id="sidebar">
             <div class="search">
-                <form role="search" method="get" class="blog-search">
-                    <input type="text" class="search-field" placeholder="Search...">
-                </form>
+                 <input type="text" class="search-name" id="searchinp" placeholder="Search...">
             </div>
+            <div class="my-5" style="background-color:grey;">
+            <div class="search-list">
+                <ul class="d-block search-list-p" id="searchList"></ul>
+            </div>
+           </div>
             <div class="lastest-posts">
                 <h3 style="font-weight: bolder;margin-bottom: 30px; font-size: 20px;">Latest Posts</h3>
                 @foreach (var item in Model.Take(3))
@@ -157,20 +158,27 @@
 </section>
 
 <script>
-    $(document).ready(function () {
-        
-      $(document).on("keyup", "#searchinp", function () {
-        let inputVal = $(this).val().trim();
-        $(".search-list-p li").slice(0).remove();
-        $.ajax({
-            method: "get",
-            url: "blog/search?search=" + inputVal,
-            success: function (res) {
-                $(".search-list-p").append(res);
-            }
-        });
+
+        document.addEventListener("keyup", function (event) {
+        if (event.target.id === "searchinp") {
+            let inputVal = event.target.value.trim();
+            let searchListItems = document.querySelectorAll(".search-list-p li");
+            searchListItems.forEach(function (item) {
+                item.parentNode.removeChild(item);
+            });
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "blog/search?search=" + inputVal);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    let res = xhr.responseText;
+                    let searchListP = document.querySelector(".search-list-p");
+                    searchListP.innerHTML = res;
+                }
+            };
+            xhr.send();
+        }
     });
-    });
+
 
 </script>
-

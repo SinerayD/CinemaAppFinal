@@ -23,6 +23,8 @@ namespace CinemaApp.Data.Context
         public DbSet<BlogCategory> BlogCategories { get; set; }
         public DbSet<Gallery> Galleries { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<BasketItem> BasketItems { get; set; }
         public CinemaAppDbContext(DbContextOptions<CinemaAppDbContext> options) : base(options)
         {
 

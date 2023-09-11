@@ -58,7 +58,7 @@ namespace CinemaApp.App.Areas.Admin.Controllers
             return RedirectToAction("index", "home");
         }
 
-        [Authorize("Admin, SuperAdmin")]
+        //[Authorize("Admin, SuperAdmin")]
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();

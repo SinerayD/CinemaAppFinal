@@ -14,12 +14,12 @@ namespace CinemaApp.App.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> Index(int? id)
+        public async Task<IActionResult> Index(int?id)
         {
             ViewBag.Categories = await _context.Categories.Where(x => !x.IsDeleted)
-              .Include(x => x.blogCategories)
-               .ThenInclude(x => x.Blog)
-                 .ToListAsync();
+               .Include(x => x.blogCategories)
+                .ThenInclude(x => x.Blog)
+                  .ToListAsync();
 
             ViewBag.Tags = await _context.Tags.Where(x => !x.IsDeleted)
            .Include(x => x.blogTags)
@@ -47,6 +47,8 @@ namespace CinemaApp.App.Controllers
                     .ToListAsync();
                 return View(blogs);
             }
+
+
         }
         public async Task<IActionResult> Detail(int id)
         {
@@ -74,6 +76,8 @@ namespace CinemaApp.App.Controllers
                 .ThenInclude(x => x.Category)
                 .Include(x => x.BlogTags)
                 .ThenInclude(x => x.Tag)
+                .Include(x => x.Comments)
+                .ThenInclude(x => x.AppUser)
                 .FirstOrDefaultAsync();
 
             BlogVm blogVm = new BlogVm
@@ -86,7 +90,7 @@ namespace CinemaApp.App.Controllers
 
         public IActionResult Search(string search)
         {
-            List<Blog> searchName = _context.Blogs.Where(s => !s.IsDeleted && s.Title.Trim().Contains(search.Trim())|| s.Description.Trim().Contains(search.Trim())).ToList();
+            List<Blog> searchName = _context.Blogs.Where(s => !s.IsDeleted && s.Title.Trim().Contains(search.Trim())).ToList();
             return PartialView("_Search", searchName);
         }
 

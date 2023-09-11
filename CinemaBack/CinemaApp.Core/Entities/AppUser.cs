@@ -11,5 +11,6 @@ namespace CinemaApp.Core.Entities
     {
         public string Name { get; set;}
         public string SurName { get; set; }
+        public List<Comment>? Comments { get; set; }
     }
 }

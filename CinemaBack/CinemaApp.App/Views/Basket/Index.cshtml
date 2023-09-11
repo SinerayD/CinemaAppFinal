@@ -1,0 +1,82 @@
+﻿@using CinemaApp.App.ViewModels;
+@model BasketIndexVM
+@{
+    ViewData["Title"] = "Basket";
+    decimal endTotal = 0;
+
+}
+
+
+<link rel="stylesheet" href="./Css/home.css">
+
+<link rel="stylesheet" href="~/Css/basket.css">
+
+
+
+<main>
+    <section id="table-area" style="padding-top:100px;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-12 d-flex align-items-center h-100 table-top">
+                    <div class="card border-0 w-100">
+                        <div class="card-header d-flex justify-content-between align-items-center bg-light pt-4">
+                            <h5 class="card-title h4 mb-0 py-2">Product List</h5>
+                            <a asp-controller="MovieBooking" asp-action="Index">
+                                <button type="button" class="btn btn-secondary my-btn">Add New Product</button>
+                            </a>
+
+                        </div>
+                        <div class="card-body">
+                            <table id="productTable" class="table table-bordered align-middle table-hover">
+                                <thead class="table-color">
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Total</th>
+                                        <th>Setting</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-body">
+                                    @foreach (var basketProduct in Model.BasketProducts)
+                                    {
+                                        <tr class="basket-product" id="@basketProduct.Id">
+                                            <td style ="text-align:center; width:200px;">
+                                                <img style="width:200px !important;height:100px !important" src="~/Images/home-page/images/@basketProduct.Image" alt="product image" />
+                                            </td>
+                                            <td style="text-align:center;">@basketProduct.Name</td>
+                                            <td style="text-align:center;">
+                                                <span style="cursor:pointer;" id="minus-basket"><i class="fa-solid fa-minus"></i></span>
+                                                <span class="product-count" style="margin:10px">@basketProduct.Quantity</span>
+                                                <span style="cursor:pointer;" id="plus-basket"><i class="fa-solid fa-plus"></i></span>
+
+                                            </td>
+
+                                            <td style="text-align:center;"><span class="total-prices">@basketProduct.Price.ToString("##.00") €</span></td>
+
+                                            <td style="text-align:center;"><span class="totals">@basketProduct.Total.ToString("##.00") €</span></td>
+
+                                            <td style="text-align:center;" class="basket-delete">
+                                                <button data-id="@basketProduct.Id" data-quantity="@basketProduct.Quantity" id="deleteBtn" style="border:none"><i class="fa fa-trash-o delete-icon" style="padding:15px;background:#505668;color:wheat;border-radius:3px!important"></i></button>
+                                            </td>
+                                        </tr>
+                                        endTotal = endTotal + basketProduct.Total;
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="total-price">
+                    <h4>Payment :</h4>
+                    <div style="display: flex; padding-top:20px; font-weight:500;">
+                        <p>Total-Price : </p>
+                        <span>@endTotal.ToString("##.00") $</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

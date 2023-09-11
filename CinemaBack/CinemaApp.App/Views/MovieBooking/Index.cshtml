@@ -1,6 +1,5 @@
-﻿@{
-    Layout = null;
-}
+﻿@using CinemaApp.Core.Entities
+@model List<Movie>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -136,137 +135,39 @@
                             </tr>
                         </thead>
                         <tbody id="sessions-tbody">
-                            <tr data-date="22.08.2023" data-cinema="Deniz Mall" data-language="Rusca">
-                                <td><a href="#">Oppenheimer</a></td>
-                                <td>20:05</td>
-                                <td>Deniz Mall</td>
-                                <td>IMAX</td>
-                                <td class="table-icons">
-                                    <img src="./Images/movie-booking/icons/ru.png" style="height: 44px;width: 48px;">
-                                    <img src="./Images/movie-booking/icons/2d.png" style="height: 44px;width: 48px;">
-                                    <img src="./Images/movie-booking/icons/azsub.png" style="height: 44px;width: 48px;">
-                                </td>
-                                <td>5.00 AZN</td>
-                                <td>
-                                    <a class="seats" href="#">Add to Cart<img src="./Images/movie-booking/icons/places_icon.svg"> </a>
-                                </td>
-                            </tr>
-                            <tr data-date="22.08.2023" data-cinema="Deniz Mall" data-language="Rusca">
-                                <td><a href="#">Oppenheimer</a></td>
-                                <td>20:15</td>
-                                <td>Deniz Mall</td>
-                                <td>IMAX</td>
-                                <td class="table-icons">
-                                    <img src="./Images/movie-booking/icons/ru.png" style="height: 44px;width: 48px;">
-                                    <img src="./Images/movie-booking/icons/2d.png" style="height: 44px;width: 48px;">
-                                </td>
-                                <td>5.00 AZN</td>
-                                <td>
-                                    <a class="seats" href="#">Add to Cart<img src="./Images/movie-booking/icons/places_icon.svg"> </a>
-                                </td>
-                            </tr>
-                            <tr data-date="23.08.2023" data-cinema="Ganjlik Mall" data-language="Turkce">
-                                <td><a href="#">Oppenheimer</a></td>
-                                <td>22:05</td>
-                                <td>Ganjlik Mall</td>
-                                <td>IMAX</td>
-                                <td class="table-icons">
-                                    <img src="./Images/movie-booking/icons/tr.png" style="height: 44px;width: 48px;">
-                                    <img src="./Images/movie-booking/icons/3d.png" style="height: 44px;width: 48px;">
-                                <td>5.00 AZN</td>
-                                <td>
-                                    <a class="seats" href="#">Add to Cart<img src="./Images/movie-booking/icons/places_icon.svg"> </a>
-                                </td>
-                            </tr>
-                            <tr data-date="24.08.2023" data-cinema="Ganjlik Mall" data-language="rusca">
-                                <td><a href="#">Oppenheimer</a></td>
-                                <td>22:05</td>
-                                <td>Ganjlik Mall</td>
-                                <td>IMAX</td>
-                                <td class="table-icons">
-                                    <img src="./Images/movie-booking/icons/ru.png" style="height: 44px;width: 48px;">
-                                    <img src="./Images/movie-booking/icons/2d.png" style="height: 44px;width: 48px;">
-                                    <img src="./Images/movie-booking/icons/azsub.png" style="height: 44px;width: 48px;">
-                                </td>
-                                <td>5.00 AZN</td>
-                                <td>
-                                    <a class="seats" href="#">Add to Cart<img src="./Images/movie-booking/icons/places_icon.svg"> </a>
-                                </td>
-                            </tr>
-                            <tr data-date="22.08.2023" data-cinema="28 Mall" data-language="turkce">
-                                <td><a href="#">Oppenheimer</a></td>
-                                <td>22:05</td>
-                                <td>28 Mall</td>
-                                <td>IMAX</td>
-                                <td class="table-icons">
-                                    <img src="./Images/movie-booking/icons/tr.png" style="height: 44px;width: 48px;">
-                                    <img src="./Images/movie-booking/icons/2d.png" style="height: 44px;width: 48px;">
-                                    <img src="./Images/movie-booking/icons/azsub.png" style="height: 44px;width: 48px;">
-                                </td>
-                                <td>5.00 AZN</td>
-                                <td>
-                                    <a class="seats" href="#">Add to Cart<img src="./Images/movie-booking/icons/places_icon.svg"> </a>
-                                </td>
-                            </tr>
-                            <tr data-date="23.08.2023" data-cinema="28 Mall" data-language="Azerbaycanca">
-                                <td><a href="#">Oppenheimer</a></td>
-                                <td>22:05</td>
-                                <td>28 Mall</td>
-                                <td>IMAX</td>
-                                <td class="table-icons">
-                                    <img src="./Images/movie-booking/icons/ru.png" style="height: 44px;width: 48px;">
-                                    <img src="./Images/movie-booking/icons/2d.png" style="height: 44px;width: 48px;">
-                                    <img src="./Images/movie-booking/icons/azsub.png" style="height: 44px;width: 48px;">
-                                </td>
-                                <td>5.00 AZN</td>
-                                <td>
-                                    <a class="seats" href="#">Add to Cart<img src="./Images/movie-booking/icons/places_icon.svg"> </a>
-                                </td>
-                            </tr>
-                            <tr data-date="24.08.2023" data-cinema="Ganjlik Mall" data-language="Azerbaycanca">
-                                <td><a href="#">Oppenheimer</a></td>
-                                <td>22:05</td>
-                                <td>Ganjlik Mall</td>
-                                <td>IMAX</td>
-                                <td class="table-icons">
-                                    <img src="./Images/movie-booking/icons/tr.png" style="height: 44px;width: 48px;">
-                                    <img src="./Images/movie-booking/icons/3d.png" style="height: 44px;width: 48px;">
-                                </td>
-                                <td>5.00 AZN</td>
-                                <td>
-                                    <a class="seats" href="#">Add to Cart<img src="./Images/movie-booking/icons/places_icon.svg"> </a>
-                                </td>
-                            </tr>
-                            <tr data-date="22.08.2023" data-cinema="Deniz Mall" data-language="English">
-                                <td><a href="#">Oppenheimer</a></td>
-                                <td>22:05</td>
-                                <td>Deniz Mall</td>
-                                <td>IMAX</td>
-                                <td class="table-icons">
-                                    <img src="./Images/movie-booking/icons/ru.png" style="height: 44px;width: 48px;">
-                                    <img src="./Images/movie-booking/icons/2d.png" style="height: 44px;width: 48px;">
-                                    <img src="./Images/movie-booking/icons/azsub.png" style="height: 44px;width: 48px;">
-                                </td>
-                                <td>5.00 AZN</td>
-                                <td>
-                                    <a class="seats" href="#">Add to Cart<img src="./Images/movie-booking/icons/places_icon.svg"> </a>
-                                </td>
-                            </tr>
-                            <tr data-date="23.08.2023" data-cinema="Deniz Mall" data-language="English">
-                                <td><a href="#">Oppenheimer</a></td>
-                                <td>22:05</td>
-                                <td>Deniz Mall</td>
-                                <td>IMAX</td>
-                                <td class="table-icons">
-                                    <img src="./Images/movie-booking/icons/ru.png" style="height: 44px;width: 48px;">
-                                    <img src="./Images/movie-booking/icons/3d.png" style="height: 44px;width: 48px;">
+                            @if (Model != null)
+                            {
+                                @foreach (var item in Model)
+                                {
+                                    <tr data-date="22.08.2023" data-cinema="Deniz Mall" data-language="Rusca" card-id="@item.Id">
+                                        <input type="hidden" class="product-id" value="@item.Id" />
 
-                                </td>
-                                <td>5.00 AZN</td>
-                                <td>
-                                    <a class="seats" href="#">Add to Cart<img src="./Images/movie-booking/icons/places_icon.svg"> </a>
-                                </td>
-                            </tr>
+                                        <td><a>@item.Name</a></td>
+                                        <td>20:05</td>
+                                        <td>Deniz Mall</td>
+                                        <td>IMAX</td>
+                                        <td class="table-icons">
+                                            <img src="./Images/movie-booking/icons/ru.png" style="height: 44px;width: 48px;">
+                                            <img src="./Images/movie-booking/icons/2d.png" style="height: 44px;width: 48px;">
+                                            <img src="./Images/movie-booking/icons/azsub.png" style="height: 44px;width: 48px;">
+                                        </td>
+                                        <td>@item.Price AZN</td>
+                                        <td>
+                                            <a style="cursor:pointer;" class="seats" cart-id="@item.Id" id="addToCart">Add to Cart<img src="./Images/movie-booking/icons/places_icon.svg"> </a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                {
+                                    <tr>
+                                        <td colspan="7">No movies found</td>
+                                    </tr>
+                                }
+                            }
+
+
 
                         </tbody>
                     </table>
@@ -349,7 +250,8 @@
 
     <script src="./Js/auto-scroll.js"></script>
     <script src="./Js/page-loader.js"></script>
-    <script src="./Js/movie-booking-filter"></script>
+    <script src="./Js/movie-booking-filter.js"></script>
+    <script src="./Js/script.js"></script>
 
 </body>
 

@@ -2,10 +2,12 @@
 
 @foreach (var item in Model)
 {
-    <li class="search-nameli">
-        <a style="color:gray !important; "  asp-action="Detail" asp-route-id="@item.Id">
-            <img src="~/assets/images/products/@item.Image" alt="banner" width="100" height="100">
-            @item.Title @item.Description
+    <li class="search-nameli" style="list-style:none; padding-top:5px;">
+        <a style="color:white !important; text-decoration:none; " asp-action="Detail" asp-route-id="@item.Id">
+            <img src="~/Images/blog-page/images/@item.Image" alt="banner" width="70" height="70">
+            <p style="width:100%">
+                @item.Title
+            </p>
         </a>
     </li>
 }

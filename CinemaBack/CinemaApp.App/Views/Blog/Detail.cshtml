@@ -82,24 +82,43 @@
                     <a href="#">@tag?.Tag.Name</a>
                 }
             </div>
-                <div class="blog-comment">
-                    <div class="comment-title">
-                        <h3>Leave A Reply</h3>
-                    </div>
-                    <div class="user-input">
-                        <input id="user" placeholder="Name" type="text" size="30" maxlength="245" required>
-                        <input id="user" placeholder="Email" type="email" size="30" maxlength="100" required>
-                    </div>
-                    <form method="post" id="comment-form">
-                        <div class="comment-form">
-                            <textarea id="comment" class="comment" cols="45" rows="10" maxlength="600" required
-                                  placeholder="Comment"></textarea>
+            <div class="blog-comment">
+                <!-- Comment List Start -->
+                <div class="mb-5">
+                    <h2 class="mb-4">@Model.blog.Comments.Count Comments</h2>
+                     @foreach (var item in Model.blog.Comments)
+                     {
+                        <div class="d-flex mb-4">
+                            <img src="./Images/movie-detail/images/cast-01.jpg" class="img-fluid rounded-circle" style="width: 45px; height: 45px;border-radius: 0%;">
+                            <div class="ps-3">
+                                <h6><a href="">@item.AppUser.UserName</a> <small><i style="font-size: 14px; margin-left: 10px;">@item.CreatedAt.ToString("dd MM yyyy")</i></small></h6>
+                                <p style="line-height: 1.86em; color: #737373;">
+                                   @item.Text
+                                </p>
+                                <button class="btn btn-sm btn-light">Reply</button>
+                            </div>
                         </div>
-                        <div class="comment-btn">
-                            <button>Post Comment</button>
-                        </div>
-                    </form>
+                    }
+                    
                 </div>
+                <!-- Comment List End -->
+                <div class="comment-title">
+                    <h3>Leave A Reply</h3>
+                </div>
+                <div class="user-input">
+                    <input id="user" placeholder="Name" type="text" size="30" maxlength="245" required>
+                    <input id="user" placeholder="Email" type="email" size="30" maxlength="100" required>
+                </div>
+                <form asp-controller="comment"asp-action="AddComment" method="post" id="comment-form">
+                    <div class="comment-form">
+                        <textarea id="comment" name="Text" class="comment" cols="45" rows="10" maxlength="600" required placeholder="Comment"></textarea>
+                        <textarea  hidden name="BlogId" value="@Model.blog.Id" id="comment" class="comment" cols="45" rows="10" maxlength="600" required placeholder="Comment"></textarea>
+                    </div>
+                    <div class="comment-btn">
+                        <button type="submit">Post Comment</button>
+                    </div>
+                </form>
+            </div>
             </div>
         <aside id="sidebar">
             <div class="search">

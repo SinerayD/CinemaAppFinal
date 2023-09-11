@@ -4,6 +4,7 @@ using CinemaApp.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaApp.Data.Migrations
 {
     [DbContext(typeof(CinemaAppDbContext))]
-    partial class CinemaAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230910191043_CreateBasket")]
+    partial class CreateBasket
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -504,13 +506,7 @@ namespace CinemaApp.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("AppUserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("AppUserId1")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("BlogId")
+                    b.Property<int>("BlogtId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
@@ -523,17 +519,17 @@ namespace CinemaApp.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Text")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("blogId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId1");
-
-                    b.HasIndex("BlogId");
+                    b.HasIndex("blogId");
 
                     b.ToTable("Comments");
                 });
@@ -953,19 +949,13 @@ namespace CinemaApp.Data.Migrations
 
             modelBuilder.Entity("CinemaApp.Core.Entities.Comment", b =>
                 {
-                    b.HasOne("CinemaApp.Core.Entities.AppUser", "AppUser")
+                    b.HasOne("CinemaApp.Core.Entities.Blog", "blog")
                         .WithMany("Comments")
-                        .HasForeignKey("AppUserId1");
-
-                    b.HasOne("CinemaApp.Core.Entities.Blog", "Blog")
-                        .WithMany("Comments")
-                        .HasForeignKey("BlogId")
+                        .HasForeignKey("blogId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AppUser");
-
-                    b.Navigation("Blog");
+                    b.Navigation("blog");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1036,11 +1026,6 @@ namespace CinemaApp.Data.Migrations
                     b.Navigation("movieActors");
 
                     b.Navigation("movieCategories");
-                });
-
-            modelBuilder.Entity("CinemaApp.Core.Entities.AppUser", b =>
-                {
-                    b.Navigation("Comments");
                 });
 
             modelBuilder.Entity("CinemaApp.Core.Entities.Basket", b =>

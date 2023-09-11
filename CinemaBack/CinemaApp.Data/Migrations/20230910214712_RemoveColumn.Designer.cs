@@ -4,6 +4,7 @@ using CinemaApp.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaApp.Data.Migrations
 {
     [DbContext(typeof(CinemaAppDbContext))]
-    partial class CinemaAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230910214712_RemoveColumn")]
+    partial class RemoveColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -523,7 +525,6 @@ namespace CinemaApp.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Text")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -954,10 +955,10 @@ namespace CinemaApp.Data.Migrations
             modelBuilder.Entity("CinemaApp.Core.Entities.Comment", b =>
                 {
                     b.HasOne("CinemaApp.Core.Entities.AppUser", "AppUser")
-                        .WithMany("Comments")
+                        .WithMany()
                         .HasForeignKey("AppUserId1");
 
-                    b.HasOne("CinemaApp.Core.Entities.Blog", "Blog")
+                    b.HasOne("CinemaApp.Core.Entities.Blog", "blog")
                         .WithMany("Comments")
                         .HasForeignKey("BlogId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -965,7 +966,7 @@ namespace CinemaApp.Data.Migrations
 
                     b.Navigation("AppUser");
 
-                    b.Navigation("Blog");
+                    b.Navigation("blog");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1036,11 +1037,6 @@ namespace CinemaApp.Data.Migrations
                     b.Navigation("movieActors");
 
                     b.Navigation("movieCategories");
-                });
-
-            modelBuilder.Entity("CinemaApp.Core.Entities.AppUser", b =>
-                {
-                    b.Navigation("Comments");
                 });
 
             modelBuilder.Entity("CinemaApp.Core.Entities.Basket", b =>

@@ -16,6 +16,8 @@ namespace CinemaApp.App.Entities
         public string Writer { get; set; }
         public string Description { get; set; }
         public string VideoUrl { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal Price { get; set; }
         public string? Image { get; set; }
         public string? TrailerImage { get; set; }
         public List<MovieCategory>? movieCategories { get; set; }
