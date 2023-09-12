@@ -644,7 +644,22 @@ textarea:focus::placeholder {
 .title a:hover {
   text-decoration: underline;
 }
-
+.search input {
+    padding: 40px 190px 40px 30px;
+    background-image: url(../Images/blog-detail/icons/search-13-24.png);
+    background-repeat: no-repeat;
+    background-position: right 30px center;
+    background-color: #D96C2C;
+    border: none;
+    color: white;
+    width: 100%;
+    font-size: 17px;
+    cursor: pointer;
+    outline:none;
+}
+.search-list {
+    background-color: lightsalmon;
+}
 .blog-categories {
   margin-top: 30px;
   padding: 30px 30px 20px 30px;
@@ -657,9 +672,7 @@ textarea:focus::placeholder {
   gap: 10px;
   margin-top: 20px;
   border-top: 1px solid #f0f0f0;
-  /* Add a top border */
   padding-top: 50px;
-  /* Add spacing above the tags */
 }
 
 .blog-post-tags a {
@@ -742,67 +755,6 @@ textarea:focus::placeholder {
 }
 
 /* End Of Blogs Section*/
-
-/* Footer*/
-.reset-password-text p,
-.label {
-  margin-bottom: 30px;
-  color: #737373;
-  line-height: 1.86em;
-}
-
-.email {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.reset-button {
-  display: block;
-  width: 173px;
-  height: 48px;
-  background-color: #EBE9EB;
-  color: #ffffff;
-  border: none;
-  padding: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.5s;
-  margin-bottom: 60px;
-  margin-top: 10px;
-}
-
-.reset-button a {
-  line-height: 1.1em;
-  font-size: 1em;
-  font-weight: 600;
-  text-decoration: none;
-  color: #515151;
-}
-
-.reset-button:hover {
-  background-color: #cfcbcf;
-}
-
-.label {
-  font-size: 17px;
-  line-height: 24px;
-  display: block;
-  width: 100%;
-  margin: 0 0 6px 0;
-  font-weight: 600;
-}
-
-.email {
-  width: 540px;
-  height: 47px;
-  margin: 0;
-  outline: 0;
-  line-height: normal;
-  margin-bottom: 10px;
-}
 
 /* Footer*/
 footer {
