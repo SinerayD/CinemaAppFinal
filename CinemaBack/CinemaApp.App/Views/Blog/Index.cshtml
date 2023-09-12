@@ -25,10 +25,8 @@
         </div>
     </div>
 }
-<section id="container">
 
-   
-   
+<section id="container">
     <div class="blog-container">
         @foreach (var item in Model)
         {
@@ -69,29 +67,44 @@
                     else
                     {
                         @item.Description.Substring(0, 400)
-                    <div class="comment-btn">
-                        <a asp-action="detail" asp-controller="blog" asp-route-id="@item.Id"> Read More</a>
-                    </div>
+                        <div class="comment-btn">
+                            <a asp-action="detail" asp-controller="blog" asp-route-id="@item.Id"> Read More</a>
+                        </div>
                     }
                 </div>
             </div>
         }
-            
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 
-        <aside id="sidebar">
-            <div class="search">
-                 <input type="text" class="search-name" id="searchinp" placeholder="Search...">
-            </div>
-            <div class="my-5" style="background-color:grey;">
+
+    <aside id="sidebar">
+        <div class="search">
+            <input type="text" class="search-name" id="searchinp" placeholder="Search...">
+        </div>
+        <div class="my-5" style="background-color:grey;">
             <div class="search-list">
                 <ul class="d-block search-list-p" id="searchList"></ul>
             </div>
-           </div>
-            <div class="lastest-posts">
-                <h3 style="font-weight: bolder;margin-bottom: 30px; font-size: 20px;">Latest Posts</h3>
-                @foreach (var item in Model.Take(3))
-                {
+        </div>
+        <div class="lastest-posts">
+            <h3 style="font-weight: bolder;margin-bottom: 30px; font-size: 20px;">Latest Posts</h3>
+            @foreach (var item in Model.Take(3))
+            {
                 <div class="item">
                     <div class="media">
                         <a href="#"><img src="./Images/blog-page/images/@item.Image"> </a>
@@ -109,7 +122,7 @@
                         <div class="title">
                             <a asp-controller="blog" asp-action="detail" asp-route-id="@item.Id">
                                 <h4>
-                                    @if (item.Title.Length <=30)
+                                    @if (item.Title.Length <= 30)
                                     {
                                         <a asp-action="detail" asp-controller="blog" asp-route-id="@item.Id">@item.Title</a>
                                     }
@@ -123,43 +136,12 @@
                     </div>
                 </div>
             }
-                
-            </div>
-            <div class="blog-categories">
-                <h4 style="font-size: 20px; margin-bottom: 30px;" class="category-title">Categories</h4>
-                <ul>
-                   @foreach (var item in ViewBag.Categories)
-                   {
-                    <li class="cat-item">
-                        <img class="cat-icon" src="./Images/blog-page/icons/folder-2.png">
-                        <a asp-action="detail" asp-controller="blog" asp-route-id="@item.Id">@item.Name </a>
-                    </li>
-                     
-                   }
-  
-                </ul>
-            </div>
-
-         <div class="blog-tags">
-            <h4 style="font-size: 20px;">Tags</h4>
-            <div class="tag-items">
-                <div" class="tag-item">
-                    @foreach (var item in ViewBag.Tags)
-                    {
-                    <a href="#">@item.Name</a>
-                    }
-                </div>
-            </div>
-         </div>
-
-     
-            
-      </aside>
+        </div>
+    </aside>
 </section>
 
 <script>
-
-        document.addEventListener("keyup", function (event) {
+    document.addEventListener("keyup", function (event) {
         if (event.target.id === "searchinp") {
             let inputVal = event.target.value.trim();
             let searchListItems = document.querySelectorAll(".search-list-p li");
@@ -179,6 +161,4 @@
             xhr.send();
         }
     });
-
-
 </script>

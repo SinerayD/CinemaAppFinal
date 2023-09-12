@@ -10,7 +10,6 @@ using Microsoft.EntityFrameworkCore;
 namespace CinemaApp.App.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles ="Admin, SuperAdmin")]
     public class BlogController : Controller
     {
         private readonly CinemaAppDbContext _context;

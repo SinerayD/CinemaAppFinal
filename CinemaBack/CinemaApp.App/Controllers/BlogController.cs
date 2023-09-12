@@ -14,8 +14,11 @@ namespace CinemaApp.App.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> Index(int?id)
+        public async Task<IActionResult> Index(int page=1)
         {
+            int TotalCount= _context.Blogs.Where(x => !x.IsDeleted).Count();
+            var TotalPage = Math.Ceiling((decimal)(TotalCount / 5));
+
             ViewBag.Categories = await _context.Categories.Where(x => !x.IsDeleted)
                .Include(x => x.blogCategories)
                 .ThenInclude(x => x.Blog)
@@ -26,9 +29,7 @@ namespace CinemaApp.App.Controllers
            .ThenInclude(x => x.Blog)
            .ToListAsync();
 
-            if (id == null)
-            {
-                IEnumerable<Blog>? blogs = await _context.Blogs.Where(x => !x.IsDeleted)
+                IEnumerable<Blog>? blogs = await _context.Blogs.Where(x => !x.IsDeleted).Skip((page-1)*5).Take(3)
                       .Include(x => x.BlogCategories)
                      .ThenInclude(x => x.Category)
                 .Include(x => x.BlogTags)
@@ -36,17 +37,7 @@ namespace CinemaApp.App.Controllers
                     .ToListAsync();
 
                 return View(blogs);
-            }
-            else
-            {
-                IEnumerable<Blog>? blogs = await _context.Blogs.Where(x => !x.IsDeleted && x.BlogCategories.Any(x => x.Category.Id == id))
-                    .Include(x => x.BlogCategories)
-                       .ThenInclude(x => x.Category)
-                    .Include(x => x.BlogTags)
-                       .ThenInclude(x => x.Tag)
-                    .ToListAsync();
-                return View(blogs);
-            }
+           
 
 
         }

@@ -475,6 +475,7 @@ input[type="number"]::-webkit-outer-spin-button {
   line-height: 1.2;
   padding: 19px 50px;
   background-color: #D96C2C;
+  color:white;
   border: 2px solid transparent;
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
